@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import bg from "@/public/images/home-page/hero/hero-bg.svg";
 import blur from "@/public/images/home-page/hero/bg-blur.svg";
+import Banner from "./Banner";
 
 const Hero = () => {
   return (
@@ -18,7 +19,9 @@ const Hero = () => {
         className="absolute inset-0 w-full object-cover object-center"
       />
 
-      <div className="px-container container mx-auto">Hero</div>
+      <div className="px-container relative container mx-auto">Hero</div>
+
+      <Banner />
     </section>
   );
 };

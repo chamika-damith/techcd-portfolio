@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${tomorrow.variable} ${tektur.variable} bg-dark text-light font-primary text-[12px] antialiased sm:text-[14.4px] md:text-[16.8px] lg:text-[20.4px] xl:text-[24px] 2xl:text-[27.6px]`}
+        className={`${tomorrow.variable} ${tektur.variable} bg-dark text-light font-primary text-[12px] leading-none antialiased sm:text-[14.4px] md:text-[16.8px] lg:text-[20.4px] xl:text-[24px] 2xl:text-[27.6px]`}
       >
         <header>
           <Navbar />
