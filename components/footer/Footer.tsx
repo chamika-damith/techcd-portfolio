@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <section>
-      <div>Footer</div>
+    <section className="h-[200px]">
+      <div></div>
     </section>
   );
 };

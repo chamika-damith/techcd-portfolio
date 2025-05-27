@@ -7,7 +7,7 @@ import Banner from "./Banner";
 
 const Hero = () => {
   return (
-    <section className="relative h-dvh">
+    <section className="relative h-dvh overflow-x-clip">
       <Image
         src={bg}
         alt="Vector"
