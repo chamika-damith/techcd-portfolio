@@ -1,7 +1,7 @@
 import React from "react";
 
-import Hero from "@/components/home-page/hero/Hero";
-import About from "@/components/home-page/about/About";
+import About from "@/components/user/home-page/about/About";
+import Hero from "@/components/user/home-page/hero/Hero";
 
 const HomePage = () => {
   return (

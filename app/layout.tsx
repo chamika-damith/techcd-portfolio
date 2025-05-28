@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import { Tomorrow, Tektur } from "next/font/google";
 import "./globals.css";
 
-import Navbar from "@/components/navbar/Navbar";
-import Footer from "@/components/footer/Footer";
-
 const tomorrow = Tomorrow({
   variable: "--font-tomorrow",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -29,15 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${tomorrow.variable} ${tektur.variable} bg-dark text-light font-primary text-[12px] leading-none antialiased sm:text-[14.4px] md:text-[16.8px] lg:text-[20.4px] xl:text-[24px] 2xl:text-[27.6px]`}
+        className={`${tomorrow.variable} ${tektur.variable} bg-dark text-light text-[12px] antialiased sm:text-[14.4px] md:text-[16.8px] lg:text-[20.4px] xl:text-[24px] 2xl:text-[27.6px]`}
       >
-        <header>
-          <Navbar />
-        </header>
-        <main>{children}</main>
-        <footer>
-          <Footer />
-        </footer>
+        {children}
       </body>
     </html>
   );
