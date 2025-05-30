@@ -69,13 +69,13 @@ const Hero = () => {
 
             {/* CTA */}
             <div className="relative flex justify-center gap-[1.5em] text-[12px] sm:justify-start sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] 2xl:text-[17px]">
-              <button className="flex items-center gap-[0.8em] rounded-full rounded-tl-none border-[0.1em] ps-[1.5em]">
+              <button className="flex items-center gap-[0.8em] rounded-full rounded-tl-none border-[0.15em] ps-[1.5em] font-medium">
                 JOIN THE FORUM
                 <div className="bg-primary text-background relative m-[0.3em] size-[2em] rounded-full">
                   <IoArrowForward className="absolute inset-0 m-auto text-[1.5em]" />
                 </div>
               </button>
-              <button className="rounded-full border-[0.1em] px-[2em]">
+              <button className="rounded-full border-[0.15em] px-[2em] font-medium">
                 SHOP NOW
               </button>
             </div>
