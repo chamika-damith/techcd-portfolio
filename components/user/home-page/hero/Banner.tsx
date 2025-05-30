@@ -34,7 +34,7 @@ const Banner = () => {
   return (
     <>
       {/* White banner */}
-      <div className="absolute right-0 bottom-0 left-0 rotate-3 overflow-x-clip bg-white">
+      <div className="mt-[2em] rotate-3 overflow-x-clip bg-white">
         <motion.div
           animate={{ x: ["-50%", 0] }}
           transition={{
