@@ -45,8 +45,8 @@ const BrandCarousel = () => {
       <div className="h-px bg-gradient-to-r from-transparent via-white/50 to-transparent"></div>
 
       {/* Side gradients */}
-      <div className="absolute top-0 bottom-0 left-0 w-[4%] bg-gradient-to-r from-[#028EFC] to-transparent"></div>
-      <div className="from-dark absolute top-0 right-0 bottom-0 w-[4%] bg-gradient-to-l to-transparent"></div>
+      {/* <div className="absolute top-0 bottom-0 left-0 w-[4%] bg-gradient-to-r from-[#028EFC] to-transparent"></div> */}
+      {/* <div className="from-background absolute top-0 right-0 bottom-0 w-[4%] bg-gradient-to-l to-transparent"></div> */}
     </div>
   );
 };

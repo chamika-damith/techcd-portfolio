@@ -34,7 +34,7 @@ const Banner = () => {
   return (
     <>
       {/* White banner */}
-      <div className="mt-[2em] rotate-3 overflow-x-clip bg-white sm:mt-0 lg:absolute lg:right-0 lg:bottom-0 lg:left-0">
+      <div className="relative z-[1] mt-[2em] rotate-3 overflow-x-clip bg-white shadow-[0.1em_0.1em_0.5em_rgba(0,0,0,0.4)] sm:mt-0 lg:absolute lg:right-0 lg:bottom-0 lg:left-0">
         <motion.div
           animate={{ x: ["-50%", 0] }}
           transition={{
@@ -61,7 +61,7 @@ const Banner = () => {
       </div>
 
       {/* Blue banner */}
-      <div className="absolute right-0 bottom-0 left-0 -rotate-3 overflow-x-clip bg-[#0281F4]">
+      <div className="absolute right-0 bottom-0 left-0 z-[1] -rotate-3 overflow-x-clip bg-[#0281F4] shadow-[0.1em_0.1em_0.5em_rgba(0,0,0,0.4)]">
         <motion.div
           animate={{ x: [0, "-50%"] }}
           transition={{
