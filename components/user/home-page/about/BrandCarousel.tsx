@@ -8,7 +8,7 @@ import { brandCarouselData } from "@/lib/constants";
 
 const BrandCarousel = () => {
   return (
-    <div className="relative overflow-clip">
+    <div className="relative z-[1] overflow-clip">
       {/* Top line */}
       <div className="h-px bg-gradient-to-r from-transparent via-white/50 to-transparent"></div>
 

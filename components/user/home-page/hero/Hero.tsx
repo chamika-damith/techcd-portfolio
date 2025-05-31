@@ -1,8 +1,9 @@
 import React from "react";
 import Image from "next/image";
 
-import { IoArrowForward } from "react-icons/io5";
 import Banner from "./Banner";
+import PrimaryButton from "../../ui/PrimaryButton";
+
 import bg from "@/public/images/home-page/hero/hero-bg.svg";
 import blur from "@/public/images/home-page/hero/bg-blur.svg";
 import hero from "@/public/images/home-page/hero/hero.png";
@@ -68,14 +69,9 @@ const Hero = () => {
             </p>
 
             {/* CTA */}
-            <div className="font-secondary relative flex justify-center gap-[1.5em] text-[12px] font-medium sm:justify-start sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] 2xl:text-[17px]">
-              <button className="flex items-center gap-[0.8em] rounded-full rounded-tl-none border-[0.15em] ps-[1.5em]">
-                JOIN THE FORUM
-                <div className="bg-primary text-background relative m-[0.3em] size-[2em] rounded-full">
-                  <IoArrowForward className="absolute inset-0 m-auto text-[1.5em]" />
-                </div>
-              </button>
-              <button className="rounded-full border-[0.15em] px-[2em]">
+            <div className="relative flex justify-center gap-[1.5em] text-[12px] sm:justify-start sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] 2xl:text-[17px]">
+              <PrimaryButton text="JOIN THE FORUM" />
+              <button className="font-secondary rounded-full border-[0.15em] px-[2em] font-medium">
                 SHOP NOW
               </button>
             </div>
