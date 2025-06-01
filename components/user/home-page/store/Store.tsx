@@ -11,9 +11,10 @@ import tShirt from "@/public/images/home-page/store/t-shirt.png";
 const Store = () => {
   return (
     <section className="relative">
-      <div className="px-container container mx-auto grid grid-cols-1 gap-[1em]">
-        <div>
-          <p className="font-secondary w-[14ch] bg-gradient-to-b from-white to-[#999999] bg-clip-text text-[25px] font-semibold text-transparent sm:w-[10ch] sm:text-[40.2px] md:text-[55.4px] lg:text-[68.2px] xl:text-[81px] 2xl:text-[93.8px]">
+      <div className="px-container container mx-auto grid grid-cols-1 gap-[1em] lg:grid-cols-11">
+        <div className="lg:col-span-6">
+          {/* Title (for screens <640px) */}
+          <p className="font-secondary w-[14ch] bg-gradient-to-b from-white to-[#999999] bg-clip-text text-[25px] font-semibold text-transparent sm:w-[10ch] sm:text-[40.2px] md:text-[55.4px] lg:hidden lg:text-[68.2px] xl:text-[81px] 2xl:text-[93.8px]">
             Join The Exclusive Merch <span className="text-primary">Store</span>
           </p>
 
@@ -58,7 +59,12 @@ const Store = () => {
           </div>
         </div>
 
-        <div className="relative grid grid-cols-11 items-end gap-[1em]">
+        <div className="relative grid grid-cols-11 items-end gap-[1em] lg:col-span-5">
+          {/* Title (for screens >=640px) */}
+          <p className="font-secondary col-span-full mt-[0.5em] hidden w-[14ch] bg-gradient-to-b from-white to-[#999999] bg-clip-text text-[25px] font-semibold text-transparent sm:w-[10ch] sm:text-[40.2px] md:text-[55.4px] lg:block lg:text-[68.2px] xl:text-[81px] 2xl:text-[93.8px]">
+            Join The Exclusive Merch <span className="text-primary">Store</span>
+          </p>
+
           <div className="relative col-span-5 aspect-[10/13]">
             <svg
               viewBox="0 0 140 129"
@@ -85,10 +91,16 @@ const Store = () => {
             </p>
             <PrimaryButton
               text="Shop now"
-              className="gap-[1.5em] ps-[3em] text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px]"
+              className="gap-[1.5em] ps-[3em] text-[12px] sm:text-[14px] md:text-[16px] lg:hidden lg:text-[18px] xl:text-[20px] 2xl:text-[22px]"
               iconStyles="bg-foreground"
             />
           </div>
+
+          <PrimaryButton
+            text="Shop now"
+            className="hidden gap-[1.5em] ps-[3em] text-[12px] sm:text-[14px] md:text-[16px] lg:col-span-full lg:flex lg:w-fit lg:text-[18px] xl:text-[20px] 2xl:text-[22px]"
+            iconStyles="bg-foreground"
+          />
         </div>
       </div>
     </section>
