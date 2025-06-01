@@ -10,7 +10,7 @@ import tShirt from "@/public/images/home-page/store/t-shirt.png";
 
 const Store = () => {
   return (
-    <section className="relative">
+    <section className="relative mb-[3em]">
       <div className="px-container container mx-auto grid grid-cols-1 gap-[1em] lg:grid-cols-11">
         <div className="lg:col-span-6">
           {/* Title (for screens <640px) */}
