@@ -1,0 +1,45 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+
+import tShirt from "@/public/images/home-page/store/t-shirt.png";
+
+const ProductCarousel = () => {
+  return (
+    <>
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        autoplay={{
+          pauseOnMouseEnter: true,
+        }}
+        modules={[Autoplay]}
+      >
+        {Array.from({ length: 5 }).map((_, i) => (
+          <SwiperSlide key={i}>
+            <div className="bg-foreground relative mx-auto aspect-square w-3/4 rounded-[1em] p-[1em] text-[12px] xl:text-[16px]">
+              <div className="text-background font-tertiary flex items-center justify-between font-medium">
+                <p>T SHIRT</p>
+                <p>$ 30</p>
+              </div>
+
+              <Image
+                src={tShirt}
+                alt="T Shirt"
+                className="object-contain"
+                fill
+              />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </>
+  );
+};
+
+export default ProductCarousel;

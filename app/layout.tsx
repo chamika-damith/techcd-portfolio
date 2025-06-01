@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Tomorrow, Tektur } from "next/font/google";
+import { Tomorrow, Tektur, Oswald } from "next/font/google";
 import "./globals.css";
 
 const tomorrow = Tomorrow({
@@ -10,6 +10,11 @@ const tomorrow = Tomorrow({
 
 const tektur = Tektur({
   variable: "--font-tektur",
+  subsets: ["latin"],
+});
+
+const oswald = Oswald({
+  variable: "--font-oswald",
   subsets: ["latin"],
 });
 
@@ -26,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${tomorrow.variable} ${tektur.variable} text-foreground bg-background text-[12px] antialiased sm:text-[14.4px] md:text-[16.8px] lg:text-[20.4px] xl:text-[24px] 2xl:text-[27.6px]`}
+        className={`${tomorrow.variable} ${tektur.variable} ${oswald.variable} text-foreground bg-background text-[12px] antialiased sm:text-[14.4px] md:text-[16.8px] lg:text-[20.4px] xl:text-[24px] 2xl:text-[27.6px]`}
       >
         {children}
       </body>
