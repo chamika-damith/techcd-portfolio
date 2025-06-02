@@ -28,7 +28,7 @@ const About = () => {
         <div className="mt-[1em] mb-[1.5em] flex flex-col items-end text-center text-[21px] sm:text-[21.75px] md:text-[22.5px] lg:col-span-5 lg:text-left lg:text-[23.25px] xl:text-[24px] 2xl:mb-[3em] 2xl:text-[24.75px]">
           {/* Title (for screens >=1024px) */}
           <div className="mb-[0.2em] hidden w-[120%] text-[25px] sm:text-[38.75px] md:text-[52.5px] lg:flex lg:items-center lg:gap-[0.1em] lg:text-[66.25px] xl:mb-[0.6em] xl:text-[80px] 2xl:text-[93.75px]">
-            <p className="font-secondary shrink-0 bg-gradient-to-b from-white to-[#999999] bg-clip-text font-semibold text-transparent">
+            <p className="font-secondary relative z-[1] shrink-0 bg-gradient-to-b from-white to-[#999999] bg-clip-text font-semibold text-transparent">
               About Me
             </p>
             <hr className="mt-[0.15em] w-full border-t-white" />
