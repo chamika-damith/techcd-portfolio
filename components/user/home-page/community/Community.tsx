@@ -88,7 +88,7 @@ const Community = () => {
               <article
                 className={cn(
                   "grid grid-cols-1 gap-[1.5em] rounded-[1em] px-[2em] py-[1.5em] lg:grid-cols-11 lg:rounded-[1.3em] lg:px-[1.5em] lg:py-[1em]",
-                  i % 2 === 0 && "border border-white/30 bg-white/8",
+                  i % 2 === 0 && "border-foreground/30 bg-foreground/8 border",
                 )}
               >
                 {/* message */}
@@ -99,7 +99,7 @@ const Community = () => {
                 <div className="flex items-center justify-between lg:col-span-5 lg:ms-[10%]">
                   <div className="flex items-center gap-[1.5em]">
                     {/* Avatar */}
-                    <div className="relative size-[40px] overflow-clip rounded-full bg-white sm:size-[44.4px] md:size-[48.8px] lg:size-[55.4px] xl:size-[62px] 2xl:size-[68.6px]">
+                    <div className="bg-foreground/30 relative size-[40px] overflow-clip rounded-full sm:size-[44.4px] md:size-[48.8px] lg:size-[55.4px] xl:size-[62px] 2xl:size-[68.6px]">
                       <Image
                         src={avatar}
                         alt={username}
@@ -120,7 +120,7 @@ const Community = () => {
                   </div>
 
                   {/* Button */}
-                  <button className="relative size-[2.5em] rounded-full border border-white">
+                  <button className="border-foreground relative size-[2.5em] rounded-full border">
                     <GoArrowUpRight className="text-primary absolute inset-0 m-auto text-[1.5em]" />
                   </button>
                 </div>

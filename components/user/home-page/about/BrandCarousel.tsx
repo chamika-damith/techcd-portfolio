@@ -10,7 +10,7 @@ const BrandCarousel = () => {
   return (
     <div className="relative z-[1] overflow-clip">
       {/* Top line */}
-      <div className="h-px bg-gradient-to-r from-transparent via-white/50 to-transparent"></div>
+      <div className="via-foreground/50 h-px bg-gradient-to-r from-transparent to-transparent"></div>
 
       {/* Carousel */}
       <motion.div
@@ -42,7 +42,7 @@ const BrandCarousel = () => {
       </motion.div>
 
       {/* Bottom line */}
-      <div className="h-px bg-gradient-to-r from-transparent via-white/50 to-transparent"></div>
+      <div className="via-foreground/50 h-px bg-gradient-to-r from-transparent to-transparent"></div>
 
       {/* Side gradients */}
       {/* <div className="absolute top-0 bottom-0 left-0 w-[4%] bg-gradient-to-r from-[#028EFC] to-transparent"></div> */}

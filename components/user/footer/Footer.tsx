@@ -32,18 +32,18 @@ const Footer = () => {
           </div>
         </div>
 
-        <ul className="mb-[3em] flex gap-[2em] text-[11px] text-[#BDBDBD] sm:text-[11.75px] md:text-[12.5px] lg:text-[13.75px] xl:text-[15px] 2xl:text-[16.25px]">
+        <ul className="mb-[3em] flex gap-[2em] text-[11px] text-[#686868] sm:text-[11.75px] md:text-[12.5px] lg:text-[13.75px] xl:text-[15px] 2xl:text-[16.25px] dark:text-[#BDBDBD]">
           <li>Terms of Use</li>
           <li>Privacy Policy</li>
           <li>About Cookies</li>
         </ul>
 
-        <p className="mb-[3em] text-[10px] text-[#BDBDBD] sm:text-[11.25px] md:text-[12.5px] lg:text-[13.75px] xl:text-[14.4px] 2xl:text-[15px]">
+        <p className="mb-[3em] text-[10px] text-[#686868] sm:text-[11.25px] md:text-[12.5px] lg:text-[13.75px] xl:text-[14.4px] 2xl:text-[15px] dark:text-[#BDBDBD]">
           Copyright © {new Date().getFullYear()} Transparent. All rights
           reserved.
         </p>
 
-        <p className="text-[10px] text-[#BDBDBD] sm:text-[11.25px] md:text-[12.5px] lg:text-[13.75px] xl:text-[14.4px] 2xl:text-[15px]">
+        <p className="text-[10px] text-[#686868] sm:text-[11.25px] md:text-[12.5px] lg:text-[13.75px] xl:text-[14.4px] 2xl:text-[15px] dark:text-[#BDBDBD]">
           This product focuses on providing organizations with tools to achieve
           financial transparency. It might include features for budgeting,
           expense tracking, financial reporting, and analytics to help

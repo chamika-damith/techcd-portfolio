@@ -14,7 +14,7 @@ const Store = () => {
       <div className="px-container container mx-auto grid grid-cols-1 gap-[1em] lg:grid-cols-11">
         <div className="lg:col-span-6">
           {/* Title (for screens <640px) */}
-          <p className="font-secondary w-[14ch] bg-gradient-to-b from-white to-[#999999] bg-clip-text text-[25px] font-semibold text-transparent sm:w-[10ch] sm:text-[40.2px] md:text-[55.4px] lg:hidden lg:text-[68.2px] xl:text-[81px] 2xl:text-[93.8px]">
+          <p className="font-secondary to-foreground dark:from-foreground w-[14ch] bg-gradient-to-b from-[#999999] bg-clip-text text-[25px] font-semibold text-transparent sm:w-[10ch] sm:text-[40.2px] md:text-[55.4px] lg:hidden lg:text-[68.2px] xl:text-[81px] 2xl:text-[93.8px] dark:to-[#999999]">
             Join The Exclusive Merch <span className="text-primary">Store</span>
           </p>
 
@@ -49,8 +49,8 @@ const Store = () => {
               >
                 <path
                   d="M11.0254 1.78613H118.045C123.419 1.78613 127.775 6.14285 127.775 11.5166V48.6123C127.775 54.8816 132.858 59.9638 139.127 59.9639H168.733C174.107 59.9641 178.463 64.3207 178.463 69.6943V311.121C178.463 316.495 174.107 320.85 168.733 320.851H11.0254C5.65177 320.851 1.29514 316.495 1.29492 311.121V11.5166C1.29492 6.14285 5.65164 1.78613 11.0254 1.78613Z"
-                  stroke="var(--color-foreground)"
                   strokeWidth="1.62167"
+                  className="dark:stroke-foreground stroke-[#dfdfdf]"
                 />
               </svg>
 
@@ -61,7 +61,7 @@ const Store = () => {
 
         <div className="relative grid grid-cols-11 items-end gap-[1em] lg:col-span-5">
           {/* Title (for screens >=640px) */}
-          <p className="font-secondary col-span-full mt-[0.5em] hidden w-[14ch] bg-gradient-to-b from-white to-[#999999] bg-clip-text text-[25px] font-semibold text-transparent sm:w-[10ch] sm:text-[40.2px] md:text-[55.4px] lg:block lg:text-[68.2px] xl:text-[81px] 2xl:text-[93.8px]">
+          <p className="font-secondary to-foreground dark:from-foreground col-span-full mt-[0.5em] hidden w-[14ch] bg-gradient-to-b from-[#999999] bg-clip-text text-[25px] font-semibold text-transparent sm:w-[10ch] sm:text-[40.2px] md:text-[55.4px] lg:block lg:text-[68.2px] xl:text-[81px] 2xl:text-[93.8px] dark:to-[#999999]">
             Join The Exclusive Merch <span className="text-primary">Store</span>
           </p>
 
@@ -74,7 +74,7 @@ const Store = () => {
             >
               <path
                 d="M0.117188 15.8986C0.117188 7.2626 7.11807 0.261719 15.7541 0.261719H90.3086C98.9446 0.261719 105.946 7.2626 105.946 15.8986V24.834C105.946 33.47 112.946 40.4709 121.582 40.4709H124.095C132.731 40.4709 139.732 47.4718 139.732 56.1078V113.071C139.732 121.707 132.732 128.708 124.095 128.708H15.7541C7.11807 128.708 0.117188 121.707 0.117188 113.071V15.8986Z"
-                fill="white"
+                className="dark:fill-foreground fill-[#dfdfdf]"
               />
             </svg>
 
