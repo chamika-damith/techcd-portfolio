@@ -32,7 +32,7 @@ const Hero = () => {
         alt="Vector"
         className="absolute inset-0 w-full object-cover object-center"
         priority
-        onLoadingComplete={handleImageLoad}
+        onLoad={handleImageLoad}
       />
 
       {/* Blur blur (for screens <=639px)*/}
@@ -44,7 +44,7 @@ const Hero = () => {
         alt="Vector"
         className="absolute inset-0 hidden w-full object-cover object-center sm:block"
         priority
-        onLoadingComplete={handleImageLoad}
+        onLoad={handleImageLoad}
       />
 
       {/* Container */}
@@ -57,14 +57,14 @@ const Hero = () => {
               alt="Bitcoin Logo"
               className="absolute top-[10%] right-0 left-0 mx-auto w-[42px] -translate-x-[90%] sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
               priority
-              onLoadingComplete={handleImageLoad}
+              onLoad={handleImageLoad}
             />
             <Image
               src={bitcoin}
               alt="Bitcoin Logo"
               className="absolute top-0 right-[10%] bottom-0 my-auto w-[42px] -translate-y-1/2 sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
               priority
-              onLoadingComplete={handleImageLoad}
+              onLoad={handleImageLoad}
             />
 
             <Image
@@ -72,7 +72,7 @@ const Hero = () => {
               alt="Hero"
               className="w-full rotate-y-180 object-cover object-center drop-shadow-[5px_5px_5px_#0000004d] sm:h-full sm:w-auto"
               priority
-              onLoadingComplete={handleImageLoad}
+              onLoad={handleImageLoad}
             />
           </div>
 

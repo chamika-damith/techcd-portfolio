@@ -103,7 +103,7 @@ const Banner: React.FC<{ playAnimation: boolean }> = ({ playAnimation }) => {
                     key={i}
                     src={white}
                     alt="Banner"
-                    className="h-full object-cover object-center"
+                    className="h-full w-auto object-cover object-center"
                   />
                 </div>
               ))}
@@ -129,7 +129,7 @@ const Banner: React.FC<{ playAnimation: boolean }> = ({ playAnimation }) => {
                     key={i}
                     src={blue}
                     alt="Banner"
-                    className="h-full object-cover object-center"
+                    className="h-full w-auto object-cover object-center"
                   />
                 </div>
               ))}
