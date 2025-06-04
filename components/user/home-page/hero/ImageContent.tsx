@@ -4,9 +4,8 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { GSDevTools } from "gsap/GSDevTools";
 
-gsap.registerPlugin(useGSAP, GSDevTools);
+gsap.registerPlugin(useGSAP);
 
 import {
   glitchOneClipPaths,
@@ -26,34 +25,55 @@ const ImageContent: React.FC<{
     () => {
       const tl = gsap
         .timeline({ paused: true })
-        // .to("#hero-glitch-img-one", {
-        //   keyframes: {
-        //     clipPath: glitchOneClipPaths,
-        //     opacity: glitchOpacityKeyframes,
-        //   },
-        //   ease: "none",
-        //   duration: 15,
-        //   repeat: -1,
-        // })
-        // .to(
-        //   "#hero-glitch-img-two",
-        //   {
-        //     keyframes: {
-        //       clipPath: glitchTwoClipPaths,
-        //       opacity: glitchOpacityKeyframes,
-        //     },
-        //     ease: "none",
-        //     duration: 2,
-        //     repeat: -1,
-        //     repeatDelay: Math.floor(Math.random() * 6 + 5),
-        //   },
-        //   "<",
-        // )
-        .to("#hero-bitcoin-img-one", { delay: 3, opacity: 1, y: 0 }, "<")
-        .to("#hero-bitcoin-img-two", { opacity: 1, y: 0 }, "<");
+        .to(".hero-glitch-img-one", {
+          keyframes: {
+            clipPath: glitchOneClipPaths,
+            opacity: glitchOpacityKeyframes,
+          },
+          ease: "none",
+          duration: 15,
+          repeat: -1,
+        })
+        .to(
+          ".hero-glitch-img-two",
+          {
+            keyframes: {
+              clipPath: glitchTwoClipPaths,
+              opacity: glitchOpacityKeyframes,
+            },
+            ease: "none",
+            duration: 2,
+            repeat: -1,
+            repeatDelay: Math.floor(Math.random() * 6 + 5),
+          },
+          "<",
+        )
+        .to(".hero-bitcoin-img-one", { delay: 2, opacity: 1, y: 0 }, "<")
+        .to(".hero-bitcoin-img-two", { opacity: 1, y: 0 }, "<")
+        .to(
+          ".hero-bitcoin-img-one",
+          {
+            delay: 0.5,
+            duration: Math.floor(Math.random() * 3 + 4),
+            ease: "none",
+            keyframes: { yPercent: [0, 5, 0] },
+            repeat: -1,
+          },
+          ">",
+        )
+        .to(
+          ".hero-bitcoin-img-two",
+          {
+            delay: 0.5,
+            duration: Math.floor(Math.random() * 3 + 4),
+            ease: "none",
+            keyframes: { yPercent: [0, -5, 0] },
+            repeat: -1,
+          },
+          "<",
+        );
 
       if (playAnimation) tl.play();
-      GSDevTools.create({ css: { zIndex: 10 }, animation: tl });
     },
     { scope: containerRef, dependencies: [playAnimation] },
   );
@@ -65,18 +85,16 @@ const ImageContent: React.FC<{
     >
       {/* 2 bitcoin images */}
       <Image
-        id="hero-bitcoin-img-one"
         src={bitcoin}
         alt="Bitcoin Logo"
-        className="absolute top-[10%] right-0 left-0 mx-auto w-[42px] -translate-x-[90%] translate-y-[1em] opacity-0 sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
+        className="hero-bitcoin-img hero-bitcoin-img-one absolute top-[10%] right-0 left-0 mx-auto w-[42px] -translate-x-[90%] translate-y-[1em] opacity-0 will-change-transform sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
         priority
         onLoad={onImageLoad}
       />
       <Image
-        id="hero-bitcoin-img-two"
         src={bitcoin}
         alt="Bitcoin Logo"
-        className="absolute top-[36%] right-[10%] my-auto w-[42px] translate-y-[1em] opacity-0 sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
+        className="hero-bitcoin-img hero-bitcoin-img-two absolute top-[36%] right-[10%] my-auto w-[42px] translate-y-[1em] opacity-0 will-change-transform sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
         priority
         onLoad={onImageLoad}
       />
@@ -90,18 +108,16 @@ const ImageContent: React.FC<{
         onLoad={onImageLoad}
       />
       <Image
-        id="hero-glitch-img-one"
         src={hero}
         alt="Hero"
-        className="pointer-events-none absolute inset-0 left-1 w-full rotate-y-180 object-cover object-center opacity-0 drop-shadow-[-2px_0_red] sm:h-full sm:w-auto"
+        className="hero-glitch-img-one pointer-events-none absolute inset-0 left-1 w-full rotate-y-180 object-cover object-center opacity-0 drop-shadow-[-2px_0_red] sm:h-full sm:w-auto"
         priority
         onLoad={onImageLoad}
       />
       <Image
-        id="hero-glitch-img-two"
         src={hero}
         alt="Hero"
-        className="pointer-events-none absolute inset-0 -left-1 w-full rotate-y-180 object-cover object-center opacity-0 mix-blend-soft-light drop-shadow-[-2px_0_blue] sm:h-full sm:w-auto"
+        className="hero-glitch-img-two pointer-events-none absolute inset-0 -left-1 w-full rotate-y-180 object-cover object-center opacity-0 mix-blend-soft-light drop-shadow-[-2px_0_blue] sm:h-full sm:w-auto"
         priority
         onLoad={onImageLoad}
       />
