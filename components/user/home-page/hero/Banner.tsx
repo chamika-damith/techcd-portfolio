@@ -1,14 +1,10 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
-
-import white from "@/public/images/home-page/hero/banner-white.svg";
-import blue from "@/public/images/home-page/hero/banner-blue.svg";
 
 const Banner: React.FC<{ playAnimation: boolean }> = ({ playAnimation }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -99,12 +95,18 @@ const Banner: React.FC<{ playAnimation: boolean }> = ({ playAnimation }) => {
             <div key={i} className="flex justify-around">
               {Array.from({ length: bannerCount }).map((_, i) => (
                 <div key={i} className="h-full">
-                  <Image
-                    key={i}
-                    src={white}
-                    alt="Banner"
-                    className="h-full w-auto object-cover object-center"
-                  />
+                  <svg
+                    viewBox="0 0 150 50"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-full"
+                  >
+                    <rect width="150" height="50" fill="white" />
+                    <path
+                      d="M26.486 35.5V20.29H21.13V16.338H36.704V20.29H31.348V35.5H26.486ZM38.6638 35.5V16.338H53.2238V20.29H43.5257V23.826H52.2618V27.492H43.5257V31.548H53.2238V35.5H38.6638ZM58.7016 35.5L55.8156 32.614V19.224L58.7016 16.338H68.5556L71.4676 19.224V23.098H66.7356V20.94L65.7996 20.03H61.6136L60.6776 20.94V30.898L61.6136 31.808H65.9556L66.9176 30.898V28.714H71.6236V32.614L68.7376 35.5H58.7016ZM73.7536 35.5V16.338H78.6156V23.462H85.1416V16.338H90.0036V35.5H85.1416V27.258H78.6156V35.5H73.7536ZM96.0005 35.5L93.1145 32.614V19.224L96.0005 16.338H105.854L108.766 19.224V23.098H104.034V20.94L103.098 20.03H98.9125L97.9765 20.94V30.898L98.9125 31.808H103.254L104.216 30.898V28.714H108.922V32.614L106.036 35.5H96.0005ZM111.052 35.5V16.338H123.558L127.536 20.316V31.522L123.558 35.5H111.052ZM115.914 31.808H121.452L122.83 30.43V21.408L121.452 20.03H115.914V31.808Z"
+                      fill="black"
+                    />
+                  </svg>
                 </div>
               ))}
             </div>
@@ -125,12 +127,18 @@ const Banner: React.FC<{ playAnimation: boolean }> = ({ playAnimation }) => {
             <div key={i} className="flex justify-around">
               {Array.from({ length: bannerCount }).map((_, i) => (
                 <div key={i} className="h-full">
-                  <Image
-                    key={i}
-                    src={blue}
-                    alt="Banner"
-                    className="h-full w-auto object-cover object-center"
-                  />
+                  <svg
+                    viewBox="0 0 150 50"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-full"
+                  >
+                    <rect width="150" height="50" fill="#0281F4" />
+                    <path
+                      d="M26.486 35.5V20.29H21.13V16.338H36.704V20.29H31.348V35.5H26.486ZM38.6638 35.5V16.338H53.2238V20.29H43.5257V23.826H52.2618V27.492H43.5257V31.548H53.2238V35.5H38.6638ZM58.7016 35.5L55.8156 32.614V19.224L58.7016 16.338H68.5556L71.4676 19.224V23.098H66.7356V20.94L65.7996 20.03H61.6136L60.6776 20.94V30.898L61.6136 31.808H65.9556L66.9176 30.898V28.714H71.6236V32.614L68.7376 35.5H58.7016ZM73.7536 35.5V16.338H78.6156V23.462H85.1416V16.338H90.0036V35.5H85.1416V27.258H78.6156V35.5H73.7536ZM96.0005 35.5L93.1145 32.614V19.224L96.0005 16.338H105.854L108.766 19.224V23.098H104.034V20.94L103.098 20.03H98.9125L97.9765 20.94V30.898L98.9125 31.808H103.254L104.216 30.898V28.714H108.922V32.614L106.036 35.5H96.0005ZM111.052 35.5V16.338H123.558L127.536 20.316V31.522L123.558 35.5H111.052ZM115.914 31.808H121.452L122.83 30.43V21.408L121.452 20.03H115.914V31.808Z"
+                      fill="white"
+                    />
+                  </svg>
                 </div>
               ))}
             </div>

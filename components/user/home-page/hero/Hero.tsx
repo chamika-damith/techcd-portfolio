@@ -9,10 +9,10 @@ import TextContent from "./TextContent";
 import CTA from "./CTA";
 import Banner from "./Banner";
 
-import bg from "@/public/images/home-page/hero/hero-bg.svg";
 import blur from "@/public/images/home-page/hero/bg-blur.svg";
+import HeroBg from "./HeroBg";
 
-const TOTAL_IMAGES = 7;
+const TOTAL_IMAGES = 6;
 
 const Hero = () => {
   const [imagesLoaded, setImagesLoaded] = useState(0);
@@ -26,13 +26,7 @@ const Hero = () => {
       <Loader playAnimation={allImagesLoaded} />
 
       {/* Square bg */}
-      <Image
-        src={bg}
-        alt="Vector"
-        className="absolute inset-0 w-full object-cover object-center"
-        priority
-        onLoad={handleImageLoad}
-      />
+      <HeroBg />
 
       {/* Blur blur (for screens <=639px)*/}
       <div className="to-primary absolute inset-0 bg-gradient-to-br from-transparent from-30% sm:hidden"></div>
