@@ -14,11 +14,12 @@ const BrandCarousel = () => {
 
   useGSAP(
     () => {
-      gsap
-        .timeline({ defaults: { duration: 20, ease: "none" }, repeat: -1 })
-        .from("#carousel", {
-          xPercent: -50,
-        });
+      gsap.from("#brand-carousel", {
+        xPercent: -50,
+        duration: 30,
+        ease: "none",
+        repeat: -1,
+      });
     },
     { scope: containerRef },
   );
@@ -30,7 +31,7 @@ const BrandCarousel = () => {
 
       {/* Carousel */}
       <div
-        id="carousel"
+        id="brand-carousel"
         className="my-[2%] grid w-[400%] grid-cols-12 sm:w-[300%] lg:w-[200%]"
       >
         {Array.from({ length: 2 }).map((_, i) => (

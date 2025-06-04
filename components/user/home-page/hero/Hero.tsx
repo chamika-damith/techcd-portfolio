@@ -1,8 +1,9 @@
 import React from "react";
 import Image from "next/image";
 
+import TextContent from "./TextContent";
+import CTA from "./CTA";
 import Banner from "./Banner";
-import PrimaryButton from "../../ui/PrimaryButton";
 
 import bg from "@/public/images/home-page/hero/hero-bg.svg";
 import blur from "@/public/images/home-page/hero/bg-blur.svg";
@@ -12,6 +13,7 @@ import bitcoin from "@/public/images/home-page/hero/bitcoin.svg";
 const Hero = () => {
   return (
     <section className="relative overflow-x-clip">
+      {/* <div className="bg-background fixed inset-0 z-[100] h-screen"></div> */}
       {/* Square bg */}
       <Image
         src={bg}
@@ -55,27 +57,10 @@ const Hero = () => {
           </div>
 
           {/* Text area */}
-          <div className="relative text-center sm:text-left">
-            <p className="relative mt-[1.8em] text-[13px] sm:mt-0 sm:text-[15.2px] md:text-[17.4px] lg:text-[20.7px] xl:text-[24px] 2xl:text-[27.3px]">
-              JOIN THE EXCLUSIVE FAN
-            </p>
-            <p className="relative my-[0.4em] text-[36px] font-semibold sm:text-[41.2px] md:text-[46.4px] lg:text-[54.2px] xl:text-[62px] 2xl:text-[69.8px]">
-              SUPPORT YOUR <br /> <span className="text-primary">FAVORITS</span>
-              <br /> CREATOR ?
-            </p>
-            <p className="relative mb-[1em] text-[15px] sm:mb-[2em] sm:text-[17.2px] md:text-[19.4px] lg:text-[21.7px] xl:text-[24px] 2xl:text-[26.3px]">
-              JOIN THE EXCLUSIVE FAN <br /> COUMMUNITY AND GRAB OFFICAL <br />{" "}
-              MERCH
-            </p>
+          <TextContent />
 
-            {/* CTA */}
-            <div className="relative flex justify-center gap-[1.5em] text-[12px] sm:justify-start sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] 2xl:text-[17px]">
-              <PrimaryButton text="JOIN THE FORUM" />
-              <button className="font-secondary rounded-full border-[0.15em] px-[2em] font-medium">
-                SHOP NOW
-              </button>
-            </div>
-          </div>
+          {/* CTA */}
+          <CTA />
         </div>
       </div>
 
