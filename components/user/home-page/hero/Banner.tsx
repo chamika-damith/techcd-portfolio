@@ -10,7 +10,7 @@ gsap.registerPlugin(useGSAP);
 import white from "@/public/images/home-page/hero/banner-white.svg";
 import blue from "@/public/images/home-page/hero/banner-blue.svg";
 
-const Banner = () => {
+const Banner: React.FC<{ playAnimation: boolean }> = ({ playAnimation }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [bannerCount, setBannerCount] = useState(0);
 
@@ -23,10 +23,14 @@ const Banner = () => {
 
   useGSAP(
     () => {
-      gsap
-        .timeline({ defaults: { duration: 20, ease: "none" }, repeat: -1 })
-        .from("#banner-white", {
-          xPercent: -50,
+      const tl = gsap
+        .timeline({
+          defaults: { duration: 20, ease: "none" },
+          repeat: -1,
+          paused: true,
+        })
+        .to("#banner-white", {
+          xPercent: 0,
         })
         .to(
           "#banner-blue",
@@ -35,8 +39,10 @@ const Banner = () => {
           },
           "<",
         );
+
+      if (playAnimation) tl.play();
     },
-    { scope: containerRef },
+    { scope: containerRef, dependencies: [playAnimation] },
   );
 
   const calBannerCount = () => {
@@ -59,7 +65,7 @@ const Banner = () => {
       <div className="rotate-3 overflow-x-clip bg-white shadow-[0.1em_0.1em_0.5em_rgba(0,0,0,0.4)] lg:absolute lg:right-0 lg:bottom-0 lg:left-0">
         <div
           id="banner-white"
-          className="grid h-[30px] w-[200%] grid-cols-2 sm:h-[34.4px] md:h-[38.8px] lg:h-[45.4px] xl:h-[52px] 2xl:h-[58.6px]"
+          className="grid h-[30px] w-[200%] -translate-x-1/2 grid-cols-2 sm:h-[34.4px] md:h-[38.8px] lg:h-[45.4px] xl:h-[52px] 2xl:h-[58.6px]"
         >
           {Array.from({ length: 2 }).map((_, i) => (
             <div key={i} className="flex justify-around">

@@ -1,6 +1,9 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 
+import Loader from "./Loader";
 import TextContent from "./TextContent";
 import CTA from "./CTA";
 import Banner from "./Banner";
@@ -10,16 +13,31 @@ import blur from "@/public/images/home-page/hero/bg-blur.svg";
 import hero from "@/public/images/home-page/hero/hero.png";
 import bitcoin from "@/public/images/home-page/hero/bitcoin.svg";
 
+const TOTAL_IMAGES = 5;
+
 const Hero = () => {
+  const [imagesLoaded, setImagesLoaded] = useState(0);
+  const [loaderAnimationDone, setLoaderAnimationDone] = useState(false);
+
+  const handleImageLoad = () => setImagesLoaded((prev) => prev + 1);
+  const allImagesLoaded = imagesLoaded === TOTAL_IMAGES;
+  const readyToAnimate = allImagesLoaded && loaderAnimationDone;
+
   return (
     <section className="relative overflow-x-clip">
-      {/* <div className="bg-background fixed inset-0 z-[100] h-screen"></div> */}
+      {/* Loading screen */}
+      <Loader
+        playAnimation={allImagesLoaded}
+        onAnimationComplete={() => setLoaderAnimationDone(true)}
+      />
+
       {/* Square bg */}
       <Image
         src={bg}
         alt="Vector"
         className="absolute inset-0 w-full object-cover object-center"
         priority
+        onLoadingComplete={handleImageLoad}
       />
 
       {/* Blur blur (for screens <=639px)*/}
@@ -30,6 +48,8 @@ const Hero = () => {
         src={blur}
         alt="Vector"
         className="absolute inset-0 hidden w-full object-cover object-center sm:block"
+        priority
+        onLoadingComplete={handleImageLoad}
       />
 
       {/* Container */}
@@ -41,11 +61,15 @@ const Hero = () => {
               src={bitcoin}
               alt="Bitcoin Logo"
               className="absolute top-[10%] right-0 left-0 mx-auto w-[42px] -translate-x-[90%] sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
+              priority
+              onLoadingComplete={handleImageLoad}
             />
             <Image
               src={bitcoin}
               alt="Bitcoin Logo"
               className="absolute top-0 right-[10%] bottom-0 my-auto w-[42px] -translate-y-1/2 sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
+              priority
+              onLoadingComplete={handleImageLoad}
             />
 
             <Image
@@ -53,18 +77,19 @@ const Hero = () => {
               alt="Hero"
               className="w-full rotate-y-180 object-cover object-center drop-shadow-[5px_5px_5px_#0000004d] sm:h-full sm:w-auto"
               priority
+              onLoadingComplete={handleImageLoad}
             />
           </div>
 
           {/* Text area */}
-          <TextContent />
+          <TextContent playAnimation={readyToAnimate} />
 
           {/* CTA */}
           <CTA />
         </div>
       </div>
 
-      <Banner />
+      <Banner playAnimation={readyToAnimate} />
     </section>
   );
 };
