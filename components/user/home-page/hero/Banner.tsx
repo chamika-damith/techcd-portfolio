@@ -26,6 +26,7 @@ const Banner: React.FC<{ playAnimation: boolean }> = ({ playAnimation }) => {
       const tl = gsap
         .timeline({
           defaults: { duration: 20, ease: "none" },
+          delay: 1,
           repeat: -1,
           paused: true,
         })

@@ -17,19 +17,14 @@ const TOTAL_IMAGES = 5;
 
 const Hero = () => {
   const [imagesLoaded, setImagesLoaded] = useState(0);
-  const [loaderAnimationDone, setLoaderAnimationDone] = useState(false);
 
   const handleImageLoad = () => setImagesLoaded((prev) => prev + 1);
   const allImagesLoaded = imagesLoaded === TOTAL_IMAGES;
-  const readyToAnimate = allImagesLoaded && loaderAnimationDone;
 
   return (
     <section className="relative overflow-x-clip">
       {/* Loading screen */}
-      <Loader
-        playAnimation={allImagesLoaded}
-        onAnimationComplete={() => setLoaderAnimationDone(true)}
-      />
+      <Loader playAnimation={allImagesLoaded} />
 
       {/* Square bg */}
       <Image
@@ -82,14 +77,14 @@ const Hero = () => {
           </div>
 
           {/* Text area */}
-          <TextContent playAnimation={readyToAnimate} />
+          <TextContent playAnimation={allImagesLoaded} />
 
           {/* CTA */}
           <CTA />
         </div>
       </div>
 
-      <Banner playAnimation={readyToAnimate} />
+      <Banner playAnimation={allImagesLoaded} />
     </section>
   );
 };

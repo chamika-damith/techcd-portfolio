@@ -6,8 +6,7 @@ import { useGSAP } from "@gsap/react";
 
 const Loader: React.FC<{
   playAnimation: boolean;
-  onAnimationComplete: () => void;
-}> = ({ playAnimation, onAnimationComplete }) => {
+}> = ({ playAnimation }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(true);
 
@@ -17,7 +16,6 @@ const Loader: React.FC<{
         const tl = gsap.timeline({
           onComplete: () => {
             setIsVisible(false);
-            onAnimationComplete();
           },
         });
 
