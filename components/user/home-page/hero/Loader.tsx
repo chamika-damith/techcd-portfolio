@@ -15,6 +15,8 @@ const Loader: React.FC<{
   useGSAP(
     () => {
       if (playAnimation && containerRef.current) {
+        document.body.style.overflow = "auto";
+
         const tl = gsap.timeline({
           onComplete: () => {
             setIsVisible(false);

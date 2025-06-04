@@ -22,6 +22,10 @@
     background: black;
   }
 
+  body {
+    overflow: hidden;
+  }
+
   button {
     cursor: pointer;
   }
