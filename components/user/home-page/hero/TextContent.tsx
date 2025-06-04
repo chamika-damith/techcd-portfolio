@@ -29,7 +29,7 @@ const TextContent: React.FC<{ playAnimation: boolean }> = ({
           "-=0.3",
         )
         .to("#hero-main-text-line-two", {
-          text: "favorits ",
+          text: "favorite ",
           duration: 1,
         })
         .to("#hero-main-text-line-three", {
@@ -45,7 +45,7 @@ const TextContent: React.FC<{ playAnimation: boolean }> = ({
   return (
     <div ref={containerRef} className="relative text-center sm:text-left">
       <p className="hero-sub-text relative mt-[1.8em] -translate-x-[1em] text-[13px] opacity-0 sm:mt-0 sm:text-[15.2px] md:text-[17.4px] lg:text-[20.7px] xl:text-[24px] 2xl:text-[27.3px]">
-        JOIN THE EXCLUSIVE {playAnimation ? "TRUE" : "FALSE"}
+        JOIN THE EXCLUSIVE FAN
       </p>
       <div className="relative mx-auto my-[0.4em] h-[3.35em] w-[12ch] text-[36px] font-semibold uppercase sm:mx-0 sm:text-[41.2px] md:text-[46.4px] lg:text-[54.2px] xl:text-[62px] 2xl:text-[69.8px]">
         <p id="hero-main-text-line-one"></p>

@@ -29,9 +29,17 @@ const Loader: React.FC<{
             },
             "100%": { yPercent: -100 },
           },
-          duration: 5,
-          ease: "power2.in",
-        });
+          duration: 2,
+          ease: "power1.in",
+        }).to(
+          "#hero-loader-text",
+          {
+            duration: 2,
+            ease: "power1.in",
+            scale: 0,
+          },
+          "<",
+        );
       }
     },
     { scope: containerRef, dependencies: [playAnimation] },
@@ -42,9 +50,12 @@ const Loader: React.FC<{
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[100] flex h-screen flex-col items-center justify-center bg-blue-950 text-white"
+      className="from-background dark:to-background fixed inset-0 z-[100] flex h-screen flex-col items-center justify-center bg-gradient-to-br to-[#0A2A4A] text-white dark:from-[#0A2A4A]"
     >
-      <p className="animate-pulse text-[2em] tracking-wider uppercase">
+      <p
+        id="hero-loader-text"
+        className="animate-pulse text-[2em] tracking-wider uppercase"
+      >
         Loading...
       </p>
     </div>
