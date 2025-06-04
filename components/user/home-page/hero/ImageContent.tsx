@@ -49,29 +49,7 @@ const ImageContent: React.FC<{
           "<",
         )
         .to(".hero-bitcoin-img-one", { delay: 2, opacity: 1, y: 0 }, "<")
-        .to(".hero-bitcoin-img-two", { opacity: 1, y: 0 }, "<")
-        .to(
-          ".hero-bitcoin-img-one",
-          {
-            delay: 0.5,
-            duration: Math.floor(Math.random() * 3 + 4),
-            ease: "none",
-            keyframes: { yPercent: [0, 5, 0] },
-            repeat: -1,
-          },
-          ">",
-        )
-        .to(
-          ".hero-bitcoin-img-two",
-          {
-            delay: 0.5,
-            duration: Math.floor(Math.random() * 3 + 4),
-            ease: "none",
-            keyframes: { yPercent: [0, -5, 0] },
-            repeat: -1,
-          },
-          "<",
-        );
+        .to(".hero-bitcoin-img-two", { opacity: 1, y: 0 }, "<");
 
       if (playAnimation) tl.play();
     },
@@ -87,14 +65,14 @@ const ImageContent: React.FC<{
       <Image
         src={bitcoin}
         alt="Bitcoin Logo"
-        className="hero-bitcoin-img hero-bitcoin-img-one absolute top-[10%] right-0 left-0 mx-auto w-[42px] -translate-x-[90%] translate-y-[1em] opacity-0 will-change-transform sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
+        className="hero-bitcoin-img hero-bitcoin-img-one absolute top-[10%] right-0 left-0 mx-auto w-[42px] -translate-x-[90%] translate-y-[1em] opacity-0 sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
         priority
         onLoad={onImageLoad}
       />
       <Image
         src={bitcoin}
         alt="Bitcoin Logo"
-        className="hero-bitcoin-img hero-bitcoin-img-two absolute top-[36%] right-[10%] my-auto w-[42px] translate-y-[1em] opacity-0 will-change-transform sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
+        className="hero-bitcoin-img hero-bitcoin-img-two absolute top-[36%] right-[10%] my-auto w-[42px] translate-y-[1em] opacity-0 sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
         priority
         onLoad={onImageLoad}
       />
