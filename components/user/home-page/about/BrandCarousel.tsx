@@ -1,25 +1,36 @@
 "use client";
 
-import React, { Fragment } from "react";
+import React, { Fragment, useRef } from "react";
 import Image from "next/image";
-import { motion } from "motion/react";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 import { brandCarouselData } from "@/lib/constants";
 
 const BrandCarousel = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      gsap
+        .timeline({ defaults: { duration: 20, ease: "none" }, repeat: -1 })
+        .from("#carousel", {
+          xPercent: -50,
+        });
+    },
+    { scope: containerRef },
+  );
+
   return (
-    <div className="relative z-[1] overflow-clip">
+    <div ref={containerRef} className="relative z-[1] overflow-clip">
       {/* Top line */}
       <div className="via-foreground/50 h-px bg-gradient-to-r from-transparent to-transparent"></div>
 
       {/* Carousel */}
-      <motion.div
-        animate={{ x: ["-50%", 0] }}
-        transition={{
-          duration: 20,
-          ease: "linear",
-          repeat: Infinity,
-        }}
+      <div
+        id="carousel"
         className="my-[2%] grid w-[400%] grid-cols-12 sm:w-[300%] lg:w-[200%]"
       >
         {Array.from({ length: 2 }).map((_, i) => (
@@ -39,14 +50,10 @@ const BrandCarousel = () => {
             ))}
           </Fragment>
         ))}
-      </motion.div>
+      </div>
 
       {/* Bottom line */}
       <div className="via-foreground/50 h-px bg-gradient-to-r from-transparent to-transparent"></div>
-
-      {/* Side gradients */}
-      {/* <div className="absolute top-0 bottom-0 left-0 w-[4%] bg-gradient-to-r from-[#028EFC] to-transparent"></div> */}
-      {/* <div className="from-background absolute top-0 right-0 bottom-0 w-[4%] bg-gradient-to-l to-transparent"></div> */}
     </div>
   );
 };

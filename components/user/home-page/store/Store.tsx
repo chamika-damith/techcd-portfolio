@@ -11,6 +11,13 @@ import tShirt from "@/public/images/home-page/store/t-shirt.png";
 const Store = () => {
   return (
     <section className="relative mb-[3em]">
+      {/* Square layout */}
+      <Image
+        src={bg}
+        alt="Vector"
+        className="absolute inset-0 w-full object-cover object-center"
+      />
+
       <div className="px-container container mx-auto grid grid-cols-1 gap-[1em] lg:grid-cols-11">
         <div className="lg:col-span-6">
           {/* Title (for screens <640px) */}
@@ -19,13 +26,6 @@ const Store = () => {
           </p>
 
           <div className="relative mt-[1.5em] aspect-square">
-            {/* Square layout */}
-            <Image
-              src={bg}
-              alt="Vector"
-              className="absolute inset-0 object-cover object-center"
-            />
-
             {/* Leaklight */}
             <div className="to-primary absolute inset-0 mx-auto size-full w-3/5 -translate-x-[10%] bg-gradient-to-br from-transparent from-40% to-40% blur-[20px]"></div>
 

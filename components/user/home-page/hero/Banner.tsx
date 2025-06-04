@@ -1,13 +1,17 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { motion } from "motion/react";
+import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 import white from "@/public/images/home-page/hero/banner-white.svg";
 import blue from "@/public/images/home-page/hero/banner-blue.svg";
 
 const Banner = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const [bannerCount, setBannerCount] = useState(0);
 
   useEffect(() => {
@@ -16,6 +20,24 @@ const Banner = () => {
     window.addEventListener("resize", calBannerCount);
     return () => window.removeEventListener("resize", calBannerCount);
   }, []);
+
+  useGSAP(
+    () => {
+      gsap
+        .timeline({ defaults: { duration: 20, ease: "none" }, repeat: -1 })
+        .from("#banner-white", {
+          xPercent: -50,
+        })
+        .to(
+          "#banner-blue",
+          {
+            xPercent: -50,
+          },
+          "<",
+        );
+    },
+    { scope: containerRef },
+  );
 
   const calBannerCount = () => {
     const windowW = window.innerWidth;
@@ -32,16 +54,11 @@ const Banner = () => {
   };
 
   return (
-    <>
+    <div ref={containerRef} className="relative z-[1] mt-[2em] sm:mt-0">
       {/* White banner */}
-      <div className="relative z-[1] mt-[2em] rotate-3 overflow-x-clip bg-white shadow-[0.1em_0.1em_0.5em_rgba(0,0,0,0.4)] sm:mt-0 lg:absolute lg:right-0 lg:bottom-0 lg:left-0">
-        <motion.div
-          animate={{ x: ["-50%", 0] }}
-          transition={{
-            duration: 20,
-            ease: "linear",
-            repeat: Infinity,
-          }}
+      <div className="rotate-3 overflow-x-clip bg-white shadow-[0.1em_0.1em_0.5em_rgba(0,0,0,0.4)] lg:absolute lg:right-0 lg:bottom-0 lg:left-0">
+        <div
+          id="banner-white"
           className="grid h-[30px] w-[200%] grid-cols-2 sm:h-[34.4px] md:h-[38.8px] lg:h-[45.4px] xl:h-[52px] 2xl:h-[58.6px]"
         >
           {Array.from({ length: 2 }).map((_, i) => (
@@ -57,18 +74,13 @@ const Banner = () => {
               ))}
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Blue banner */}
-      <div className="absolute right-0 bottom-0 left-0 z-[1] -rotate-3 overflow-x-clip bg-[#0281F4] shadow-[0.1em_0.1em_0.5em_rgba(0,0,0,0.4)]">
-        <motion.div
-          animate={{ x: [0, "-50%"] }}
-          transition={{
-            duration: 20,
-            ease: "linear",
-            repeat: Infinity,
-          }}
+      <div className="absolute right-0 bottom-0 left-0 -rotate-3 overflow-x-clip bg-[#0281F4] shadow-[0.1em_0.1em_0.5em_rgba(0,0,0,0.4)]">
+        <div
+          id="banner-blue"
           className="grid h-[30px] w-[200%] grid-cols-2 sm:h-[34.4px] md:h-[38.8px] lg:h-[45.4px] xl:h-[52px] 2xl:h-[58.6px]"
         >
           {Array.from({ length: 2 }).map((_, i) => (
@@ -84,9 +96,9 @@ const Banner = () => {
               ))}
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 
