@@ -15,8 +15,9 @@ const TextContent: React.FC<{ playAnimation: boolean }> = ({
   useGSAP(
     () => {
       const tl = gsap
-        .timeline({ defaults: { ease: "power1.in" }, delay: 1.5, paused: true })
+        .timeline({ defaults: { ease: "power1.in" }, paused: true })
         .to(".hero-sub-text", {
+          delay: 1.5,
           opacity: 1,
           x: 0,
         })

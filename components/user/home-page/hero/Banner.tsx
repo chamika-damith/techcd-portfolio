@@ -25,20 +25,44 @@ const Banner: React.FC<{ playAnimation: boolean }> = ({ playAnimation }) => {
     () => {
       const tl = gsap
         .timeline({
-          defaults: { duration: 20, ease: "none" },
-          delay: 1,
-          repeat: -1,
           paused: true,
         })
-        .to("#banner-white", {
-          xPercent: 0,
+        .to("#banner-blue-container", {
+          delay: 1,
+          ease: "power1.in",
+          opacity: 1,
+          rotate: -3,
+          y: 0,
         })
+        .to(
+          "#banner-white-container",
+          {
+            ease: "power1.in",
+            opacity: 1,
+            rotate: 3,
+            y: 0,
+          },
+          "<+0.4",
+        )
+        .to(
+          "#banner-white",
+          {
+            duration: 20,
+            ease: "none",
+            repeat: -1,
+            xPercent: 0,
+          },
+          "<-0.4",
+        )
         .to(
           "#banner-blue",
           {
+            duration: 20,
+            ease: "none",
+            repeat: -1,
             xPercent: -50,
           },
-          "<",
+          "<-0.4",
         );
 
       if (playAnimation) tl.play();
@@ -63,7 +87,10 @@ const Banner: React.FC<{ playAnimation: boolean }> = ({ playAnimation }) => {
   return (
     <div ref={containerRef} className="relative z-[1] mt-[2em] sm:mt-0">
       {/* White banner */}
-      <div className="rotate-3 overflow-x-clip bg-white shadow-[0.1em_0.1em_0.5em_rgba(0,0,0,0.4)] lg:absolute lg:right-0 lg:bottom-0 lg:left-0">
+      <div
+        id="banner-white-container"
+        className="translate-y-1/4 overflow-x-clip bg-white opacity-0 shadow-[0.1em_0.1em_0.5em_rgba(0,0,0,0.4)] lg:absolute lg:right-0 lg:bottom-0 lg:left-0"
+      >
         <div
           id="banner-white"
           className="grid h-[30px] w-[200%] -translate-x-1/2 grid-cols-2 sm:h-[34.4px] md:h-[38.8px] lg:h-[45.4px] xl:h-[52px] 2xl:h-[58.6px]"
@@ -71,11 +98,12 @@ const Banner: React.FC<{ playAnimation: boolean }> = ({ playAnimation }) => {
           {Array.from({ length: 2 }).map((_, i) => (
             <div key={i} className="flex justify-around">
               {Array.from({ length: bannerCount }).map((_, i) => (
-                <div key={i} className="size-full">
+                <div key={i} className="h-full">
                   <Image
+                    key={i}
                     src={white}
                     alt="Banner"
-                    className="size-full object-contain"
+                    className="h-full object-cover object-center"
                   />
                 </div>
               ))}
@@ -85,7 +113,10 @@ const Banner: React.FC<{ playAnimation: boolean }> = ({ playAnimation }) => {
       </div>
 
       {/* Blue banner */}
-      <div className="absolute right-0 bottom-0 left-0 -rotate-3 overflow-x-clip bg-[#0281F4] shadow-[0.1em_0.1em_0.5em_rgba(0,0,0,0.4)]">
+      <div
+        id="banner-blue-container"
+        className="absolute right-0 bottom-0 left-0 translate-y-1/4 overflow-x-clip bg-[#0281F4] opacity-0 shadow-[0.1em_0.1em_0.5em_rgba(0,0,0,0.4)]"
+      >
         <div
           id="banner-blue"
           className="grid h-[30px] w-[200%] grid-cols-2 sm:h-[34.4px] md:h-[38.8px] lg:h-[45.4px] xl:h-[52px] 2xl:h-[58.6px]"
@@ -93,11 +124,12 @@ const Banner: React.FC<{ playAnimation: boolean }> = ({ playAnimation }) => {
           {Array.from({ length: 2 }).map((_, i) => (
             <div key={i} className="flex justify-around">
               {Array.from({ length: bannerCount }).map((_, i) => (
-                <div key={i} className="size-full">
+                <div key={i} className="h-full">
                   <Image
+                    key={i}
                     src={blue}
                     alt="Banner"
-                    className="size-full object-contain"
+                    className="h-full object-cover object-center"
                   />
                 </div>
               ))}
