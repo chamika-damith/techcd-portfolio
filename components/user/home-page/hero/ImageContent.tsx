@@ -4,8 +4,9 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { GSDevTools } from "gsap/GSDevTools";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, GSDevTools);
 
 import {
   glitchOneClipPaths,
@@ -25,31 +26,34 @@ const ImageContent: React.FC<{
     () => {
       const tl = gsap
         .timeline({ paused: true })
-        .to("#glitch-img-one", {
-          keyframes: {
-            clipPath: glitchOneClipPaths,
-            opacity: glitchOpacityKeyframes,
-          },
-          ease: "none",
-          duration: 15,
-          repeat: -1,
-        })
-        .to(
-          "#glitch-img-two",
-          {
-            keyframes: {
-              clipPath: glitchTwoClipPaths,
-              opacity: glitchOpacityKeyframes,
-            },
-            ease: "none",
-            duration: 2,
-            repeat: -1,
-            repeatDelay: Math.floor(Math.random() * 6 + 5),
-          },
-          "<",
-        );
+        // .to("#hero-glitch-img-one", {
+        //   keyframes: {
+        //     clipPath: glitchOneClipPaths,
+        //     opacity: glitchOpacityKeyframes,
+        //   },
+        //   ease: "none",
+        //   duration: 15,
+        //   repeat: -1,
+        // })
+        // .to(
+        //   "#hero-glitch-img-two",
+        //   {
+        //     keyframes: {
+        //       clipPath: glitchTwoClipPaths,
+        //       opacity: glitchOpacityKeyframes,
+        //     },
+        //     ease: "none",
+        //     duration: 2,
+        //     repeat: -1,
+        //     repeatDelay: Math.floor(Math.random() * 6 + 5),
+        //   },
+        //   "<",
+        // )
+        .to("#hero-bitcoin-img-one", { delay: 3, opacity: 1, y: 0 }, "<")
+        .to("#hero-bitcoin-img-two", { opacity: 1, y: 0 }, "<");
 
       if (playAnimation) tl.play();
+      GSDevTools.create({ css: { zIndex: 10 }, animation: tl });
     },
     { scope: containerRef, dependencies: [playAnimation] },
   );
@@ -61,16 +65,18 @@ const ImageContent: React.FC<{
     >
       {/* 2 bitcoin images */}
       <Image
+        id="hero-bitcoin-img-one"
         src={bitcoin}
         alt="Bitcoin Logo"
-        className="absolute top-[10%] right-0 left-0 mx-auto w-[42px] -translate-x-[90%] sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
+        className="absolute top-[10%] right-0 left-0 mx-auto w-[42px] -translate-x-[90%] translate-y-[1em] opacity-0 sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
         priority
         onLoad={onImageLoad}
       />
       <Image
+        id="hero-bitcoin-img-two"
         src={bitcoin}
         alt="Bitcoin Logo"
-        className="absolute top-0 right-[10%] bottom-0 my-auto w-[42px] -translate-y-1/2 sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
+        className="absolute top-[36%] right-[10%] my-auto w-[42px] translate-y-[1em] opacity-0 sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
         priority
         onLoad={onImageLoad}
       />
@@ -84,7 +90,7 @@ const ImageContent: React.FC<{
         onLoad={onImageLoad}
       />
       <Image
-        id="glitch-img-one"
+        id="hero-glitch-img-one"
         src={hero}
         alt="Hero"
         className="pointer-events-none absolute inset-0 left-1 w-full rotate-y-180 object-cover object-center opacity-0 drop-shadow-[-2px_0_red] sm:h-full sm:w-auto"
@@ -92,7 +98,7 @@ const ImageContent: React.FC<{
         onLoad={onImageLoad}
       />
       <Image
-        id="glitch-img-two"
+        id="hero-glitch-img-two"
         src={hero}
         alt="Hero"
         className="pointer-events-none absolute inset-0 -left-1 w-full rotate-y-180 object-cover object-center opacity-0 mix-blend-soft-light drop-shadow-[-2px_0_blue] sm:h-full sm:w-auto"
