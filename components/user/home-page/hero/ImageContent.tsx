@@ -65,14 +65,14 @@ const ImageContent: React.FC<{
       <Image
         src={bitcoin}
         alt="Bitcoin Logo"
-        className="hero-bitcoin-img hero-bitcoin-img-one absolute top-[10%] right-0 left-0 mx-auto w-[42px] -translate-x-[90%] translate-y-[1em] opacity-0 sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
+        className="hero-bitcoin-img hero-bitcoin-img-one absolute top-[10%] right-0 left-0 mx-auto w-[42px] -translate-x-[90%] translate-y-[1em] opacity-0 select-none sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
         priority
         onLoad={onImageLoad}
       />
       <Image
         src={bitcoin}
         alt="Bitcoin Logo"
-        className="hero-bitcoin-img hero-bitcoin-img-two absolute top-[36%] right-[10%] my-auto w-[42px] translate-y-[1em] opacity-0 sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
+        className="hero-bitcoin-img hero-bitcoin-img-two absolute top-[36%] right-[10%] my-auto w-[42px] translate-y-[1em] opacity-0 select-none sm:w-[58.5px] md:w-[75px] lg:w-[101.5px] xl:w-[128px] 2xl:w-[154.5px]"
         priority
         onLoad={onImageLoad}
       />
@@ -81,21 +81,21 @@ const ImageContent: React.FC<{
       <Image
         src={hero}
         alt="Hero"
-        className="w-full rotate-y-180 object-cover object-center drop-shadow-[5px_5px_5px_#0000004d] sm:h-full sm:w-auto"
+        className="w-full rotate-y-180 object-cover object-center drop-shadow-[5px_5px_5px_#0000004d] select-none sm:h-full sm:w-auto"
         priority
         onLoad={onImageLoad}
       />
       <Image
         src={hero}
         alt="Hero"
-        className="hero-glitch-img-one pointer-events-none absolute inset-0 left-1 w-full rotate-y-180 object-cover object-center opacity-0 drop-shadow-[-2px_0_red] sm:h-full sm:w-auto"
+        className="hero-glitch-img-one pointer-events-none absolute inset-0 left-1 w-full rotate-y-180 object-cover object-center opacity-0 drop-shadow-[-2px_0_red] select-none sm:h-full sm:w-auto"
         priority
         onLoad={onImageLoad}
       />
       <Image
         src={hero}
         alt="Hero"
-        className="hero-glitch-img-two pointer-events-none absolute inset-0 -left-1 w-full rotate-y-180 object-cover object-center opacity-0 mix-blend-soft-light drop-shadow-[-2px_0_blue] sm:h-full sm:w-auto"
+        className="hero-glitch-img-two pointer-events-none absolute inset-0 -left-1 w-full rotate-y-180 object-cover object-center opacity-0 drop-shadow-[-2px_0_blue] select-none sm:h-full sm:w-auto"
         priority
         onLoad={onImageLoad}
       />
