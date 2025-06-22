@@ -15,19 +15,16 @@
 @layer base {
   * {
     scrollbar-width: thin;
+    cursor: none;
   }
 
   ::selection {
-    color: white;
-    background: black;
+    color: var(--background);
+    background: var(--foreground);
   }
 
   body {
     overflow: hidden;
-  }
-
-  button {
-    cursor: pointer;
   }
 }
 

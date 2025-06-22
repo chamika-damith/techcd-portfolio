@@ -98,7 +98,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
       {/* icon */}
       <div
         className={cn(
-          "bg-primary text-background relative m-[0.3em] size-[2em] rounded-full transition-all duration-500 group-hover:bg-transparent group-hover:text-white",
+          "bg-primary text-background group-hover:text-foreground relative m-[0.3em] size-[2em] rounded-full transition-all duration-500 group-hover:bg-transparent",
           iconStyles,
         )}
       >
