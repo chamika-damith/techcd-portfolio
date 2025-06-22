@@ -1,8 +1,12 @@
-.blue-ball {
-  animation: move 10s infinite linear;
+.ball-one {
+  animation: moveBallOne 10s infinite linear;
 }
 
-@keyframes move {
+.ball-two {
+  animation: moveBallTwo 10s infinite linear;
+}
+
+@keyframes moveBallOne {
   0%,
   100% {
     left: 0;
@@ -25,6 +29,34 @@
   }
 
   80% {
+    left: 0;
+    top: 100%;
+  }
+}
+
+@keyframes moveBallTwo {
+  0%,
+  100% {
+    left: 0;
+    top: 0;
+  }
+
+  20% {
+    left: 40%;
+    top: 100%;
+  }
+
+  50% {
+    left: 100%;
+    top: 0;
+  }
+
+  70% {
+    left: 100%;
+    top: 100%;
+  }
+
+  90% {
     left: 0;
     top: 100%;
   }
