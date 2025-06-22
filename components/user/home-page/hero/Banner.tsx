@@ -19,7 +19,8 @@ const Banner: React.FC<{ playAnimation: boolean }> = ({ playAnimation }) => {
 
   useGSAP(
     () => {
-      const tl = gsap
+      // const tl = gsap
+      gsap
         .timeline({
           paused: true,
         })
@@ -61,7 +62,7 @@ const Banner: React.FC<{ playAnimation: boolean }> = ({ playAnimation }) => {
           "<-0.4",
         );
 
-      if (playAnimation) tl.play();
+      // if (playAnimation) tl.play();
     },
     { scope: containerRef, dependencies: [playAnimation] },
   );
