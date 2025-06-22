@@ -24,7 +24,7 @@ const Cursor = () => {
   return (
     <div
       ref={cursorRef}
-      className="bg-primary fixed top-1/2 left-1/2 z-[999] aspect-square w-[1%] rounded-full mix-blend-hard-light backdrop-blur-sm"
+      className="bg-foreground/30 fixed right-0 left-0 z-[999] aspect-square w-[0.7em] rounded-full backdrop-blur-[1px]"
     ></div>
   );
 };
