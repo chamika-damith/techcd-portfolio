@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Tomorrow, Tektur, Oswald } from "next/font/google";
+
+import Cursor from "@/components/user/ui/Cursor";
 import "./globals.css";
-import Cursor from "@/components/user/Cursor";
 
 const tomorrow = Tomorrow({
   variable: "--font-tomorrow",

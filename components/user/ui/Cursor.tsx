@@ -24,7 +24,8 @@ const Cursor = () => {
   return (
     <div
       ref={cursorRef}
-      className="bg-foreground/30 fixed right-0 left-0 z-[999] aspect-square w-[0.7em] rounded-full backdrop-blur-[1px]"
+      className="bg-foreground/30 pointer-events-none fixed right-0 left-0 z-[999] aspect-square w-[0.7em] rounded-full backdrop-blur-[1px]"
+      style={{ transform: "translateX(-50%) translateY(-50%)" }}
     ></div>
   );
 };
