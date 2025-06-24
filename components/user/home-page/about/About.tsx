@@ -16,7 +16,7 @@ const About = () => {
           <p className="font-secondary to-foreground dark:from-foreground shrink-0 bg-gradient-to-b from-[#999999] bg-clip-text font-semibold text-transparent dark:to-[#999999]">
             About Me
           </p>
-          <hr className="mt-[0.15em] w-full border-t-white" />
+          <hr className="border-t-foreground mt-[0.15em] w-full" />
         </div>
 
         {/* Image area */}
@@ -31,7 +31,7 @@ const About = () => {
             <p className="font-secondary to-foreground dark:from-foreground relative z-[1] shrink-0 bg-gradient-to-b from-[#999999] bg-clip-text font-semibold text-transparent dark:to-[#999999]">
               About Me
             </p>
-            <hr className="mt-[0.15em] w-full border-t-white" />
+            <hr className="border-t-foreground mt-[0.15em] w-full" />
           </div>
 
           <p className="mb-[1em]">
