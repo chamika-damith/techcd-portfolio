@@ -15,6 +15,12 @@ const TitleLg = () => {
     () => {
       const text = new SplitText(".section-title", { type: "chars" });
 
+      // IMPORTANT
+      text.chars.forEach((char) => {
+        char.className =
+          "bg-gradient-to-b from-[#999999] to-foreground dark:from-foreground dark:to-[#999999] bg-clip-text text-transparent inline-block";
+      });
+
       gsap.from(text.chars, {
         opacity: 0,
         rotationY: -90,
