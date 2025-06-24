@@ -5,8 +5,9 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
 
 const TitleLg = () => {
   const container = useRef<HTMLDivElement>(null);
@@ -26,6 +27,10 @@ const TitleLg = () => {
         rotationY: -90,
         stagger: 0.1,
         x: "-50%",
+        scrollTrigger: {
+          trigger: ".section-title",
+          start: "top 80%",
+        },
       });
     },
     { scope: container },
