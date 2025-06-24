@@ -3,6 +3,8 @@ import React from "react";
 import BrandCarousel from "./BrandCarousel";
 import about from "@/public/images/home-page/about/about.png";
 import Image from "next/image";
+import Title from "./Title";
+import TitleLg from "./TitleLg";
 
 const About = () => {
   return (
@@ -12,12 +14,7 @@ const About = () => {
 
       <div className="px-container relative container mx-auto lg:mb-[1.5em] lg:grid lg:grid-cols-11 lg:items-end">
         {/* Title (for screens <1024px) */}
-        <div className="flex items-center gap-[0.1em] text-[25px] sm:text-[38.75px] md:text-[52.5px] lg:hidden lg:text-[66.25px] xl:text-[80px] 2xl:text-[93.75px]">
-          <p className="font-secondary to-foreground dark:from-foreground shrink-0 bg-gradient-to-b from-[#999999] bg-clip-text font-semibold text-transparent dark:to-[#999999]">
-            About Me
-          </p>
-          <hr className="border-t-foreground mt-[0.15em] w-full" />
-        </div>
+        <Title />
 
         {/* Image area */}
         <div className="mx-auto aspect-[25/23] w-4/5 sm:w-3/5 md:w-1/2 lg:relative lg:z-[1] lg:col-span-6 lg:w-full">
@@ -27,12 +24,7 @@ const About = () => {
         {/* Text area */}
         <div className="mt-[1em] mb-[1.5em] flex flex-col items-end text-center text-[21px] sm:text-[21.75px] md:text-[22.5px] lg:col-span-5 lg:text-left lg:text-[23.25px] xl:text-[24px] 2xl:mb-[3em] 2xl:text-[24.75px]">
           {/* Title (for screens >=1024px) */}
-          <div className="mb-[0.2em] hidden w-[120%] text-[25px] sm:text-[38.75px] md:text-[52.5px] lg:flex lg:items-center lg:gap-[0.1em] lg:text-[66.25px] xl:mb-[0.6em] xl:text-[80px] 2xl:text-[93.75px]">
-            <p className="font-secondary to-foreground dark:from-foreground relative z-[1] shrink-0 bg-gradient-to-b from-[#999999] bg-clip-text font-semibold text-transparent dark:to-[#999999]">
-              About Me
-            </p>
-            <hr className="border-t-foreground mt-[0.15em] w-full" />
-          </div>
+          <TitleLg />
 
           <p className="mb-[1em]">
             Lorem Ipsum is simply dummy text of the printing and typesetting

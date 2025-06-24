@@ -41,12 +41,12 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
           paused: true,
         })
         .to(buttonTextSplit.chars, {
-          y: () => getDisplacement(),
+          y: getDisplacement,
         })
         .from(
           hoverTextSplit.chars,
           {
-            y: () => getDisplacement(),
+            y: getDisplacement,
           },
           "<+0.05",
         );
