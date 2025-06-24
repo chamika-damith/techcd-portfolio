@@ -77,19 +77,19 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
       {/* Animated balls */}
       <div
         className={cn(
-          "bg-foreground absolute top-0 left-0 size-[2em] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 blur-[0.4em] brightness-125 transition-opacity delay-500 duration-500 ease-in group-hover:opacity-100",
+          "bg-foreground absolute top-0 left-0 size-[2em] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 blur-[0.4em] brightness-125 transition-opacity delay-500 duration-500 ease-in group-hover:opacity-100 group-focus:opacity-100",
           classes["ball-one"],
         )}
       ></div>
       <div
         className={cn(
-          "bg-primary absolute top-0 left-0 size-[2em] -translate-x-2/5 -translate-y-2/5 rounded-full opacity-0 blur-[0.4em] brightness-125 transition-opacity delay-500 duration-500 ease-in group-hover:opacity-100",
+          "bg-primary absolute top-0 left-0 size-[2em] -translate-x-2/5 -translate-y-2/5 rounded-full opacity-0 blur-[0.4em] brightness-125 transition-opacity delay-500 duration-500 ease-in group-hover:opacity-100 group-focus:opacity-100",
           classes["ball-two"],
         )}
       ></div>
 
       {/* black bg (visible on hover) */}
-      <div className="group-hover:bg-background/60 absolute inset-0 m-[0.2em] rounded-full rounded-tl-none bg-transparent backdrop-blur-sm transition-all duration-500"></div>
+      <div className="group-hover:bg-background/60 group-focus:bg-background/60 absolute inset-0 m-[0.2em] rounded-full rounded-tl-none bg-transparent backdrop-blur-sm transition-all duration-500"></div>
 
       {/* text */}
       <span className="hover-text absolute overflow-hidden">{text}</span>
@@ -98,11 +98,11 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
       {/* icon */}
       <div
         className={cn(
-          "bg-primary text-background group-hover:text-foreground relative m-[0.3em] size-[2em] rounded-full transition-all duration-500 group-hover:bg-transparent",
+          "bg-primary text-background group-hover:text-foreground group-focus:text-foreground relative m-[0.3em] size-[2em] rounded-full transition-all duration-500 group-hover:bg-transparent group-focus:bg-transparent",
           iconStyles,
         )}
       >
-        <IoArrowForward className="absolute inset-0 m-auto text-[1.5em] group-hover:animate-pulse" />
+        <IoArrowForward className="absolute inset-0 m-auto text-[1.5em] group-hover:animate-pulse group-focus:animate-pulse" />
       </div>
     </button>
   );
