@@ -1,0 +1,33 @@
+.cta {
+  background-image: linear-gradient(
+    to top right,
+    #0a2a4a,
+    var(--color-primary),
+    var(--color-background)
+  );
+  background-size: 400% 400%;
+  animation: moveBg 15s ease infinite;
+}
+
+@keyframes moveBg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .cta {
+    background-image: linear-gradient(
+      to top right,
+      #0a2a4a,
+      var(--color-primary),
+      var(--color-foreground)
+    );
+  }
+}

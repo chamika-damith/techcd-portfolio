@@ -102,7 +102,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
           iconStyles,
         )}
       >
-        <IoArrowForward className="absolute inset-0 m-auto text-[1.5em]" />
+        <IoArrowForward className="absolute inset-0 m-auto text-[1.5em] group-hover:animate-pulse" />
       </div>
     </button>
   );
