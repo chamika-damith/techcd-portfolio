@@ -13,7 +13,7 @@ const ThemeToggle = () => {
 
   return (
     <button
-      className="border-foreground/50 relative h-[1.8em] w-[4em] rounded-full border-2 p-[0.1em]"
+      className="border-foreground/50 relative h-[2em] w-[4em] rounded-full border-2 p-[0.1em]"
       onClick={toggleTheme}
     >
       <div
