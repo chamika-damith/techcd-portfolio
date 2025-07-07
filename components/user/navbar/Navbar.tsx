@@ -10,6 +10,7 @@ import { useGSAP } from "@gsap/react";
 import { cn } from "@/lib/utils";
 import { navLinks } from "@/lib/constants";
 import NavMenuIcon from "../icons/NavMenuIcon";
+import ThemeToggle from "./ThemeToggle";
 
 gsap.registerPlugin(useGSAP);
 
@@ -109,10 +110,36 @@ const Navbar = () => {
     >
       <div className="px-container container mx-auto flex items-center justify-between">
         {/* Logo */}
-        <p className="text-[20px] font-bold uppercase">Techcd</p>
+        <p className="text-[20px] font-bold uppercase sm:text-[21px] md:text-[23px] lg:text-[24px] xl:text-[26px] 2xl:text-[27px]">
+          Techcd
+        </p>
+
+        <nav className="hidden font-medium lg:flex lg:text-[18px] xl:text-[22px] 2xl:text-[26px]">
+          <ul className="flex items-center gap-[1.5em]">
+            {navLinks.map(({ href, placeholder }) => (
+              <li key={href}>
+                <Link href={href}>{placeholder}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="hidden lg:flex lg:gap-[1em] lg:text-[18px] xl:text-[22px] 2xl:text-[26px]">
+          <ThemeToggle />
+
+          <div className="text-background flex items-center justify-center gap-[0.5em] font-medium dark:text-[#00BDFF]">
+            <Link href="/sign-up">
+              <button className="uppercase">Signup</button>
+            </Link>
+            <div className="via-background dark:via-foreground h-full w-[1px] self-stretch bg-gradient-to-b from-transparent to-transparent"></div>
+            <Link href="/sign-in">
+              <button className="uppercase">Login</button>
+            </Link>
+          </div>
+        </div>
 
         {/* Mobile nav toggle */}
-        <button onClick={toggleMobileNav}>
+        <button onClick={toggleMobileNav} className="lg:hidden">
           <NavMenuIcon className="w-[30px]" />
         </button>
       </div>
@@ -121,14 +148,14 @@ const Navbar = () => {
         {/* Mobile nav overlay */}
         <div
           ref={mobileNavOverlayRef}
-          className="fixed inset-0 -z-[1] hidden bg-black/30 opacity-0"
+          className="fixed inset-0 -z-[1] hidden bg-black/30 opacity-0 lg:hidden"
           onClick={toggleMobileNav}
         ></div>
 
         {/* Mobile nav */}
         <nav
           ref={mobileNavRef}
-          className="text-foreground fixed right-0 bottom-0 left-0 hidden max-h-[70dvh] overflow-hidden rounded-t-[2em] px-[2em] py-[3em] text-[20px]"
+          className="text-foreground fixed right-0 bottom-0 left-0 hidden max-h-[70dvh] overflow-hidden rounded-t-[2em] px-[2em] py-[3em] text-[20px] sm:text-[21px] md:text-[23px] lg:hidden"
         >
           {/* Gradient bg */}
           <div
