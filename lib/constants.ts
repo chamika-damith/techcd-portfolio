@@ -5,6 +5,34 @@ import binance from "@/public/images/home-page/about/binance.png";
 import xm from "@/public/images/home-page/about/xm.png";
 import slt from "@/public/images/home-page/about/slt.png";
 
+// ----- ----- ----- NAV LINKS ----- ----- -----
+export const navLinks = [
+  {
+    placeholder: "Home",
+    href: "/",
+  },
+  {
+    placeholder: "About",
+    href: "/about",
+  },
+  {
+    placeholder: "Products",
+    href: "/products",
+  },
+  {
+    placeholder: "Forum",
+    href: "/forum",
+  },
+  {
+    placeholder: "Blog",
+    href: "/blog",
+  },
+  {
+    placeholder: "Pricing",
+    href: "/pricing",
+  },
+];
+
 // ----- ----- ----- BRAND CAROUSEL DATA ----- ----- -----
 export const brandCarouselData = [
   { id: "001", src: aliExpress, alt: "Ali Express" },
