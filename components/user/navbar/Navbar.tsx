@@ -16,22 +16,66 @@ gsap.registerPlugin(useGSAP);
 const Navbar = () => {
   const activePath = usePathname();
   const containerRef = useRef<HTMLElement>(null);
-  const [IsMobileNavOpen, setIsMobileNavOpen] = useState(false);
+
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [displayMobileNav, setDisplayMobileNav] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useGSAP(
     () => {
-      const tl = gsap
-        .timeline({ paused: true })
+      // Mobile nav entry timeline
+      const entryTimeline = gsap
+        .timeline({
+          paused: true,
+          onComplete: () => {
+            gsap.set(".mobile-nav-list", { overflow: "auto" });
+            setIsAnimating(false);
+          },
+        })
         .to(".mobile-nav-bg", {
           clipPath: "circle(120% at 50% 100%)",
           ease: "none",
           duration: 0.7,
         })
-        .from(".mobile-nav-item", { opacity: 0, stagger: 0.1, yPercent: 100 });
+        .to(".mobile-nav-item", { opacity: 1, yPercent: 0, stagger: 0.1 });
 
-      if (IsMobileNavOpen) tl.play();
+      // Mobile nav exit timeline
+      const exitTimeline = gsap
+        .timeline({
+          paused: true,
+          onComplete: () => {
+            setDisplayMobileNav(false);
+            setIsAnimating(false);
+          },
+        })
+        .fromTo(
+          ".mobile-nav-item",
+          { opacity: 1, yPercent: 0 },
+          { opacity: 0, yPercent: 100, stagger: 0.1 },
+        )
+        .to(
+          ".mobile-nav-bg",
+          {
+            clipPath: "circle(0% at 50% 100%)",
+            ease: "none",
+            duration: 0.7,
+          },
+          "<+0.3",
+        );
+
+      if (isMobileNavOpen) {
+        setIsAnimating(true);
+        gsap.set(".mobile-nav-item", { opacity: 0, yPercent: 100 });
+        entryTimeline.play();
+      }
+
+      if (!isMobileNavOpen && displayMobileNav) {
+        setIsAnimating(true);
+        gsap.set(".mobile-nav-list", { overflow: "hidden" });
+        exitTimeline.play();
+      }
     },
-    { scope: containerRef, dependencies: [IsMobileNavOpen] },
+    { scope: containerRef, dependencies: [isMobileNavOpen] },
   );
 
   const getActiveLinkClasses = (href: string) => {
@@ -51,7 +95,12 @@ const Navbar = () => {
       htmlElement.classList.remove("overflow-hidden");
     else htmlElement.classList.add("overflow-hidden");
 
-    setIsMobileNavOpen((prev) => !prev);
+    if (!displayMobileNav) {
+      setDisplayMobileNav(true);
+      setIsMobileNavOpen(true);
+    } else {
+      setIsMobileNavOpen(false);
+    }
   };
 
   return (
@@ -64,16 +113,19 @@ const Navbar = () => {
         <p className="text-[20px] font-bold uppercase">Techcd</p>
 
         {/* Mobile nav toggle */}
-        <button onClick={toggleMobileNav}>
+        <button onClick={toggleMobileNav} disabled={isAnimating}>
           <NavMenuIcon className="w-[30px]" />
         </button>
       </div>
 
-      {IsMobileNavOpen && (
+      {displayMobileNav && (
         <>
           {/* Mobile nav overlay */}
           <div
-            className="fixed inset-0 -z-[1] bg-black/30"
+            className={cn(
+              "fixed inset-0 -z-[1] bg-black/30",
+              isAnimating && "pointer-events-none",
+            )}
             onClick={toggleMobileNav}
           ></div>
 
@@ -86,7 +138,7 @@ const Navbar = () => {
             ></div>
 
             {/* Nav links */}
-            <ul className="flex grow flex-col gap-[2em] overflow-auto pr-[8px]">
+            <ul className="mobile-nav-list flex grow flex-col gap-[2em] overflow-hidden pr-[8px]">
               {navLinks.map(({ href, placeholder }) => (
                 <li
                   key={href}
