@@ -53,7 +53,7 @@ const Navbar = () => {
           ></div>
 
           {/* Mobile nav */}
-          <nav className="bg-background text-foreground fixed right-0 bottom-0 left-0 flex max-h-[70vh] rounded-t-[2em] px-[2em] py-[3em] text-[20px] dark:from-[#0A2A4A]">
+          <nav className="bg-background text-foreground dark:from-background from-background fixed right-0 bottom-0 left-0 flex max-h-[70vh] rounded-t-[2em] bg-gradient-to-bl to-[#0A2A4A] px-[2em] py-[3em] text-[20px] dark:to-[#0A2A4A]">
             {/* Nav links */}
             <ul className="flex grow flex-col gap-[2em] overflow-auto pr-[8px]">
               {navLinks.map(({ href, placeholder }) => (
