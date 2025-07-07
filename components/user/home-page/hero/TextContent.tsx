@@ -44,7 +44,10 @@ const TextContent: React.FC<{ playAnimation: boolean }> = ({
   );
 
   return (
-    <div ref={containerRef} className="relative text-center sm:text-left">
+    <div
+      ref={containerRef}
+      className="relative text-center sm:text-left lg:mt-[2.5em]"
+    >
       <p className="hero-sub-text relative mt-[1.8em] -translate-x-[1em] text-[13px] opacity-0 sm:mt-0 sm:text-[15.2px] md:text-[17.4px] lg:text-[20.7px] xl:text-[24px] 2xl:text-[27.3px]">
         JOIN THE EXCLUSIVE FAN
       </p>
