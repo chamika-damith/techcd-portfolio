@@ -10,7 +10,7 @@ import NavMenuIcon from "../icons/NavMenuIcon";
 
 const Navbar = () => {
   const activePath = usePathname();
-  const [IsMobileNavOpen, setIsMobileNavOpen] = useState(true);
+  const [IsMobileNavOpen, setIsMobileNavOpen] = useState(false);
 
   const getActiveLinkClasses = (href: string) => {
     const classes = "text-background dark:text-primary";
