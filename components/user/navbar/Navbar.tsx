@@ -114,7 +114,7 @@ const Navbar = () => {
           Techcd
         </p>
 
-        <nav className="hidden font-medium lg:flex lg:text-[18px] xl:text-[22px] 2xl:text-[26px]">
+        <nav className="hidden font-medium lg:flex lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
           <ul className="flex items-center gap-[1.5em]">
             {navLinks.map(({ href, placeholder }) => (
               <li key={href}>
@@ -124,7 +124,7 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        <div className="hidden lg:flex lg:gap-[1em] lg:text-[18px] xl:text-[22px] 2xl:text-[26px]">
+        <div className="hidden lg:flex lg:gap-[1em] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
           <ThemeToggle />
 
           <div className="text-background flex items-center justify-center gap-[0.5em] font-medium dark:text-[#00BDFF]">
