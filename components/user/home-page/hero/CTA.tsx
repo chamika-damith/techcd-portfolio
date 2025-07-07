@@ -11,11 +11,11 @@ const CTA = () => {
       <button className="font-secondary group relative rounded-full border-[0.15em] px-[2em] font-medium">
         <div
           className={cn(
-            "absolute inset-0 m-[0.2em] rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100",
+            "absolute inset-0 m-[0.2em] rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus:opacity-100",
             classes.cta,
           )}
         ></div>
-        <span className="group-hover:text-background mix-blend-overlays text-foreground relative transition-colors duration-300">
+        <span className="group-hover:text-background group-focus:text-background mix-blend-overlays text-foreground relative transition-colors duration-300">
           SHOP NOW
         </span>
       </button>
