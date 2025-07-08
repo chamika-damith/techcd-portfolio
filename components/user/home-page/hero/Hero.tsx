@@ -5,11 +5,11 @@ import Image from "next/image";
 
 import Loader from "./Loader";
 import HeroBg from "./HeroBg";
-import ParticleBg from "./ParticleBg";
+// import ParticleBg from "./ParticleBg";
 import ImageContent from "./ImageContent";
 import TextContent from "./TextContent";
 import CTA from "./CTA";
-import Banner from "./Banner";
+// import Banner from "./Banner";
 
 import blur from "@/public/images/home-page/hero/bg-blur.svg";
 
@@ -26,7 +26,7 @@ const Hero = () => {
       {/* Loading screen */}
       <Loader playAnimation={allImagesLoaded} />
 
-      <ParticleBg />
+      {/* <ParticleBg /> */}
       <HeroBg />
 
       {/* Blur blur (for screens <=639px)*/}
@@ -53,7 +53,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <Banner playAnimation={allImagesLoaded} />
+      {/* <Banner playAnimation={allImagesLoaded} /> */}
     </section>
   );
 };

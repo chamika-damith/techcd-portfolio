@@ -11,7 +11,7 @@ const CTA = () => {
       <button className="font-secondary group relative rounded-full border-[0.15em] px-[2em] font-medium">
         <div
           className={cn(
-            "absolute inset-0 m-[0.2em] rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus:opacity-100",
+            "absolute inset-0 m-[4px] rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus:opacity-100",
             classes.cta,
           )}
         ></div>

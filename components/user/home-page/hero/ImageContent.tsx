@@ -23,7 +23,8 @@ const ImageContent: React.FC<{
 
   useGSAP(
     () => {
-      const tl = gsap
+      // const tl = gsap
+      gsap
         .timeline({ paused: true })
         .to(".hero-glitch-img-one", {
           keyframes: {
@@ -51,7 +52,7 @@ const ImageContent: React.FC<{
         .to(".hero-bitcoin-img-one", { delay: 2, opacity: 1, y: 0 }, "<")
         .to(".hero-bitcoin-img-two", { opacity: 1, y: 0 }, "<");
 
-      if (playAnimation) tl.play();
+      // if (playAnimation) tl.play();
     },
     { scope: containerRef, dependencies: [playAnimation] },
   );
