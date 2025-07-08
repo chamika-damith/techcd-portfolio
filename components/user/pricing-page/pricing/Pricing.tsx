@@ -4,6 +4,7 @@ import Image from "next/image";
 import bg from "@/public/images/pricing-page/pricing/bg.svg";
 import SectionTitle from "./SectionTitle";
 import GodRays from "./GodRays";
+import PricingTabs from "./PricingTabs";
 
 const Pricing = () => {
   return (
@@ -13,6 +14,7 @@ const Pricing = () => {
 
       <div className="px-container relative container mx-auto pt-[8em]">
         <SectionTitle />
+        <PricingTabs />
       </div>
     </section>
   );
