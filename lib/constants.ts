@@ -93,3 +93,16 @@ export const glitchTwoClipPaths = [
 ];
 
 export const glitchOpacityKeyframes = new Array(20).fill(1).concat(0);
+
+// ----- ----- ----- PRICING SECTION GOD RAYS ----- ----- -----
+export const rayClasses = [
+  "mr-[3.178%] h-[72.657%] w-[5.527%]",
+  "mr-[3.114%] h-[72.657%] w-[5.527%] bg-gradient-to-b from-[#0084F0]/40 to-transparent to-75%",
+  "mr-[6.2%] h-[72.657%] w-[5.527%]",
+  "mr-[2.751%] h-[72.657%] w-[2.142%] bg-gradient-to-b from-[#028EFC]/21 to-transparent",
+  "mr-[2.751%] h-full w-[10.862%]",
+  "mr-[5.93%] h-[64.96%] w-[20.308%]",
+  "mr-[2.601%] h-[72.657%] w-[9.524%]",
+  "mr-[1.591%] h-[72.657%] w-[3.261%]",
+  "h-[66.816%] w-[9.801%]",
+];

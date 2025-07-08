@@ -1,20 +1,9 @@
 import React from "react";
-
-import { cn } from "@/lib/utils";
-import bg from "@/public/images/pricing-page/pricing/bg.svg";
 import Image from "next/image";
 
-const rayClasses = [
-  "mr-[3.178%] h-[72.657%] w-[5.527%]",
-  "mr-[3.114%] h-[72.657%] w-[5.527%] bg-gradient-to-b from-[#0084F0]/40 to-transparent to-75%",
-  "mr-[6.2%] h-[72.657%] w-[5.527%]",
-  "mr-[2.751%] h-[72.657%] w-[2.142%] bg-gradient-to-b from-[#028EFC]/21 to-transparent",
-  "mr-[2.751%] h-full w-[10.862%]",
-  "mr-[5.93%] h-[64.96%] w-[20.308%]",
-  "mr-[2.601%] h-[72.657%] w-[9.524%]",
-  "mr-[1.591%] h-[72.657%] w-[3.261%]",
-  "h-[66.816%] w-[9.801%]",
-];
+import { cn } from "@/lib/utils";
+import { rayClasses } from "@/lib/constants";
+import bg from "@/public/images/pricing-page/pricing/bg.svg";
 
 const Pricing = () => {
   return (
@@ -38,8 +27,17 @@ const Pricing = () => {
       <Image src={bg} alt="Vector" className="absolute inset-0 size-full" />
 
       <div className="px-container relative container mx-auto pt-[8em]">
-        <p className="bg-gradient-to-b from-white from-30% to-[#999999] bg-clip-text text-center text-[20px] font-semibold text-transparent uppercase xl:text-[60px]">
+        <div className="border-primary/30 mx-auto w-fit rounded-full border bg-white/10 text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] 2xl:text-[18px]">
+          <p className="bg-gradient-to-b from-white from-30% to-[#999999] bg-clip-text px-[1em] py-[0.4em] text-transparent">
+            Bring your business to the best scale
+          </p>
+        </div>
+        <h1 className="my-[0.2em] bg-gradient-to-b from-white from-30% to-[#999999] bg-clip-text text-center text-[26px] font-semibold text-transparent uppercase sm:text-[34px] md:text-[43px] lg:text-[51px] xl:text-[60px] 2xl:text-[68px]">
           Discover Products <br /> With the Best Pricing
+        </h1>
+        <p className="mx-auto w-[36ch] text-center text-[12px] uppercase sm:text-[13px] md:text-[15px] lg:w-[53ch] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
+          Select from best plan, ensuring a perfect match. Need more or less?
+          Customize your subscription for a seamless fit!
         </p>
       </div>
     </section>
