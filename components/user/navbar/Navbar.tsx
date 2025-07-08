@@ -121,7 +121,7 @@ const Navbar = () => {
   return (
     <section
       ref={containerRef}
-      className="fixed top-[1.5em] right-0 left-0 z-50"
+      className="absolute top-[1.5em] right-0 left-0 z-50"
     >
       <div className="px-container container mx-auto flex items-center justify-between">
         {/* Logo */}

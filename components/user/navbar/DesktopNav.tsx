@@ -24,11 +24,11 @@ const DesktopNav: React.FC<{
       <div className="hidden lg:flex lg:gap-[1.5em] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
         <ThemeToggle />
 
-        <div className="text-background flex items-center justify-center gap-[0.5em] font-medium">
+        <div className="text-foreground flex items-center justify-center gap-[0.5em] font-medium">
           <Link href="/sign-up">
             <button className="uppercase">Signup</button>
           </Link>
-          <div className="via-background h-full w-[1px] self-stretch bg-gradient-to-b from-transparent to-transparent"></div>
+          <div className="via-foreground h-full w-[1px] self-stretch bg-gradient-to-b from-transparent to-transparent"></div>
           <Link href="/sign-in">
             <button className="uppercase">Login</button>
           </Link>
