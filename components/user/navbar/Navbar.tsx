@@ -78,13 +78,10 @@ const Navbar = () => {
     const nav = mobileNavRef.current;
     const list = mobileNavListRef.current;
 
-    const htmlElement = document.documentElement;
-
     if (!tl || !overlay || !nav || !list) return;
 
-    if (htmlElement.classList.contains("overflow-hidden"))
-      htmlElement.classList.remove("overflow-hidden");
-    else htmlElement.classList.add("overflow-hidden");
+    const htmlElement = document.documentElement;
+    htmlElement.classList.toggle("overflow-hidden");
 
     if (!isMobileNavOpen) {
       overlay.classList.remove("hidden");
