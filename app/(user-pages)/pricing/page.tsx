@@ -1,6 +1,6 @@
 import React from "react";
 
-import Pricing from "@/components/user/pricing-page/Pricing";
+import Pricing from "@/components/user/pricing-page/pricing/Pricing";
 
 const PricingPage = () => {
   return (
