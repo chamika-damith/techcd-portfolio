@@ -114,7 +114,7 @@ const Navbar = () => {
           Techcd
         </p>
 
-        <nav className="hidden font-medium lg:flex lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
+        <nav className="hidden lg:flex lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
           <ul className="flex items-center gap-[1.5em]">
             {navLinks.map(({ href, placeholder }) => (
               <li key={href}>
@@ -124,14 +124,14 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        <div className="hidden lg:flex lg:gap-[1em] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
+        <div className="hidden lg:flex lg:gap-[1.5em] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
           <ThemeToggle />
 
-          <div className="text-background flex items-center justify-center gap-[0.5em] font-medium dark:text-[#00BDFF]">
+          <div className="text-background flex items-center justify-center gap-[0.5em] font-medium">
             <Link href="/sign-up">
               <button className="uppercase">Signup</button>
             </Link>
-            <div className="via-background dark:via-foreground h-full w-[1px] self-stretch bg-gradient-to-b from-transparent to-transparent"></div>
+            <div className="via-background h-full w-[1px] self-stretch bg-gradient-to-b from-transparent to-transparent"></div>
             <Link href="/sign-in">
               <button className="uppercase">Login</button>
             </Link>
