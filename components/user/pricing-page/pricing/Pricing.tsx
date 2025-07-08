@@ -8,7 +8,7 @@ import PricingTabs from "./PricingTabs";
 
 const Pricing = () => {
   return (
-    <section className="relative h-dvh">
+    <section className="relative">
       <GodRays />
       <Image src={bg} alt="Vector" className="absolute inset-0 size-full" />
 
