@@ -5,10 +5,11 @@ import bg from "@/public/images/pricing-page/pricing/bg.svg";
 import SectionTitle from "./SectionTitle";
 import GodRays from "./GodRays";
 import PricingTabs from "./PricingTabs";
+import Banner from "./Banner";
 
 const Pricing = () => {
   return (
-    <section className="relative">
+    <section className="relative overflow-x-hidden overflow-y-visible">
       <GodRays />
       <Image src={bg} alt="Vector" className="absolute inset-0 size-full" />
 
@@ -16,6 +17,8 @@ const Pricing = () => {
         <SectionTitle />
         <PricingTabs />
       </div>
+
+      <Banner />
     </section>
   );
 };
