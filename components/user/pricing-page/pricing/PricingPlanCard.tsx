@@ -10,7 +10,7 @@ const PricingPlanCard: React.FC<{ colored: boolean }> = ({ colored }) => {
 
       <div
         className={cn(
-          "relative mb-[0.6em] size-[1em] rounded-full border border-white/20 bg-white/10",
+          "border-foreground/20 bg-foreground/10 relative mb-[0.6em] size-[1em] rounded-full border",
           colored && "from-primary to-primary/40 border-none bg-gradient-to-b",
         )}
       >
