@@ -4,7 +4,7 @@ import { IoIosArrowDown } from "react-icons/io";
 type ProductFilterSidebarProps = {
   categories: Array<{ name: string; subCategories: string[] }>;
   selectedFilters: string[];
-  handleFilterChange: (subCategory: string) => void;
+  handleFilterChange: (filterKey: string) => void;
 };
 
 const ProductFilterSidebar: React.FC<ProductFilterSidebarProps> = ({
@@ -64,21 +64,24 @@ const ProductFilterSidebar: React.FC<ProductFilterSidebarProps> = ({
                   className="space-y-[0.5em]"
                   id={`cat-panel-${cat.name} border-b`}
                 >
-                  {cat.subCategories.map((sub) => (
-                    <div key={sub}>
-                      <label className="flex cursor-pointer items-center gap-2">
-                        <input
-                          type="checkbox"
-                          className="accent-blue-500"
-                          checked={selectedFilters.includes(sub)}
-                          onChange={() => handleFilterChange(sub)}
-                          aria-label={`Filter by ${sub}`}
-                          tabIndex={0}
-                        />
-                        <span>{sub}</span>
-                      </label>
-                    </div>
-                  ))}
+                  {cat.subCategories.map((sub) => {
+                    const filterKey = `${cat.name}|${sub}`;
+                    return (
+                      <div key={sub}>
+                        <label className="flex cursor-pointer items-center gap-2">
+                          <input
+                            type="checkbox"
+                            className="accent-blue-500"
+                            checked={selectedFilters.includes(filterKey)}
+                            onChange={() => handleFilterChange(filterKey)}
+                            aria-label={`Filter by ${cat.name} ${sub}`}
+                            tabIndex={0}
+                          />
+                          <span>{sub}</span>
+                        </label>
+                      </div>
+                    );
+                  })}
                 </div>
               )}
             </div>

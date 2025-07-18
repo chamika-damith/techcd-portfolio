@@ -22,17 +22,19 @@ const Pagination = ({
       >
         Previous
       </button>
-      {[...Array(totalPages)].map((_, i) => (
-        <button
-          key={i}
-          className={`rounded px-[0.8em] py-[0.5em] ${currentPage === i + 1 ? "bg-foreground text-background" : "bg-background text-foreground"}`}
-          onClick={() => setCurrentPage(i + 1)}
-          tabIndex={0}
-          aria-label={`Go to page ${i + 1}`}
-        >
-          {i + 1}
-        </button>
-      ))}
+      <div className="grid grid-cols-4 gap-[0.5em]">
+        {[...Array(totalPages)].map((_, i) => (
+          <button
+            key={i}
+            className={`rounded px-[0.8em] py-[0.5em] ${currentPage === i + 1 ? "bg-foreground text-background" : "bg-background text-foreground"}`}
+            onClick={() => setCurrentPage(i + 1)}
+            tabIndex={0}
+            aria-label={`Go to page ${i + 1}`}
+          >
+            {i + 1}
+          </button>
+        ))}
+      </div>
       <button
         className="rounded-full border px-[1em] py-[0.5em] disabled:opacity-50"
         onClick={() => setCurrentPage(currentPage + 1)}

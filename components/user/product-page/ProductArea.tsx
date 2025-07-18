@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import ProductFilterSidebar from "./ProductFilterSidebar";
 import ProductGridArea from "./ProductGridArea";
 
-// Mock data for categories and products
 const mockCategories = [
   {
     name: "Men's",
@@ -32,27 +31,27 @@ const mockProducts = Array.from({ length: 24 }, (_, i) => ({
 }));
 
 const ProductArea = () => {
-  // State for selected filters and pagination
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Handle filter change
-  const handleFilterChange = (subCategory: string) => {
+  // Use unique key for each filter: "Category|SubCategory"
+  const handleFilterChange = (filterKey: string) => {
     setCurrentPage(1);
     setSelectedFilters((prev) =>
-      prev.includes(subCategory)
-        ? prev.filter((f) => f !== subCategory)
-        : [...prev, subCategory],
+      prev.includes(filterKey)
+        ? prev.filter((f) => f !== filterKey)
+        : [...prev, filterKey],
     );
   };
 
-  // Filter products by selected sub-categories
+  // Filtering logic: match both category and subCategory
   const filteredProducts =
     selectedFilters.length === 0
       ? mockProducts
-      : mockProducts.filter((p) => selectedFilters.includes(p.subCategory));
+      : mockProducts.filter((p) =>
+          selectedFilters.includes(`${p.category}|${p.subCategory}`),
+        );
 
-  // Pagination
   const total = filteredProducts.length;
 
   return (

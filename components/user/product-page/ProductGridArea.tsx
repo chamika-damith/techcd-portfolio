@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 
 import { Product } from "@/lib/types";
 import Pagination from "./Pagination";
@@ -17,7 +19,25 @@ const ProductGridArea: React.FC<ProductGridAreaProps> = ({
   setCurrentPage,
   total,
 }) => {
-  const pageSize = 12;
+  const [pageSize, setPageSize] = useState(4);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      let size = 4;
+
+      if (width < 1024) size = 6;
+      else size = 9;
+
+      setPageSize(size);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const totalPages = Math.ceil(total / pageSize);
   const paginatedProducts = products.slice(
     (currentPage - 1) * pageSize,
