@@ -1,12 +1,12 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 
-type TitleAreaProps = {
+type PriceFilterProps = {
   isPricingAnnual: boolean;
   handleClick: (isPricingAnnual: boolean) => void;
 };
 
-const TitleArea = ({ isPricingAnnual, handleClick }: TitleAreaProps) => {
+const PriceFilter = ({ isPricingAnnual, handleClick }: PriceFilterProps) => {
   return (
     <div className="mb-[2em] flex justify-between">
       {/* Title area */}
@@ -50,4 +50,4 @@ const TitleArea = ({ isPricingAnnual, handleClick }: TitleAreaProps) => {
   );
 };
 
-export default TitleArea;
+export default PriceFilter;

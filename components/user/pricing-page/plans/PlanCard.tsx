@@ -2,12 +2,12 @@ import React from "react";
 
 type PlanCardProps = {
   title: string;
-  price: string;
+  price: number;
 };
 
 const PlanCard = ({ title, price }: PlanCardProps) => {
   return (
-    <div className="border-foreground/50 bg-foreground/30 w-fit space-y-[1em] rounded-[0.3em] border p-[1em] text-[13px] sm:text-[15px] md:text-[17px] lg:text-[19px] xl:text-[20px] 2xl:text-[21px]">
+    <div className="border-foreground/30 bg-foreground/10 w-fit space-y-[1em] rounded-[0.3em] border p-[1em] text-[13px] sm:text-[15px] md:text-[17px] lg:text-[19px] xl:text-[20px] 2xl:text-[21px]">
       <p className="font-bold uppercase">{title}</p>
 
       <div className="flex items-baseline gap-[0.1em] text-[22px] font-semibold sm:text-[24px] md:text-[26px] lg:text-[30px] xl:text-[32px] 2xl:text-[34px]">
