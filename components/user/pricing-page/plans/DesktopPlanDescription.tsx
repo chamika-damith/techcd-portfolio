@@ -31,9 +31,9 @@ const features = [
   },
 ];
 
-const MobilePlanDescription = () => {
+const DesktopPlanDescription = () => {
   return (
-    <div className="lg:hidden">
+    <div className="hidden lg:block">
       {features.map((group, i) => (
         <div key={i}>
           <div className="bg-foreground/20 mb-[0.4em] rounded-[0.4em] px-[1em] py-[0.8em] text-[14px] font-semibold sm:text-[15px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[22px]">
@@ -76,4 +76,4 @@ const MobilePlanDescription = () => {
   );
 };
 
-export default MobilePlanDescription;
+export default DesktopPlanDescription;
