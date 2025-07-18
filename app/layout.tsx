@@ -31,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark lg:overflow-auto">
+    <html lang="en" className="dark lg:overflow-visible">
       <body
         className={`${tomorrow.variable} ${tektur.variable} ${oswald.variable} text-foreground bg-background text-[12px] antialiased transition-colors duration-500 sm:text-[14.4px] md:text-[16.8px] lg:text-[20.4px] xl:text-[24px] 2xl:text-[27.6px]`}
       >

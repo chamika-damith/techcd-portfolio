@@ -25,10 +25,6 @@
     background: var(--foreground);
   }
 
-  body {
-    overflow: hidden;
-  }
-
   .swiper-pagination-bullet {
     transition: all 300ms ease-in;
   }
