@@ -33,15 +33,16 @@ const ProductFilterSidebar: React.FC<ProductFilterSidebarProps> = ({
   };
 
   return (
-    <div className="bg-foreground/10 border-foreground/30 h-fit rounded-[1em] border p-[1em] text-[13px] sm:text-[15px] md:text-[17px] lg:col-span-1 lg:text-[19px] xl:text-[20px] 2xl:text-[21px]">
+    <div className="bg-foreground/5 border-foreground/20 h-fit rounded-[1em] border p-[1em] text-[13px] sm:text-[15px] md:text-[17px] lg:col-span-1 lg:text-[19px] xl:text-[20px] 2xl:text-[21px]">
       <h2 className="mb-[0.5em] font-semibold">CATEGORY</h2>
       <div className="space-y-[0.5em]">
         {categories.map((cat) => {
           const isOpen = expanded.includes(cat.name);
           return (
-            <div key={cat.name}>
+            <div key={cat.name} className="relative pb-[1em]">
+              <div className="from-foreground/10 via-foreground to-foreground/10 absolute right-0 bottom-0 left-0 h-[1px] bg-gradient-to-r"></div>
               <button
-                className="mb-[0.5em] flex w-full items-center justify-between rounded py-[0.5em] font-semibold"
+                className="relative mb-[0.5em] flex w-full items-center justify-between rounded py-[0.5em] font-semibold"
                 aria-expanded={isOpen}
                 aria-controls={`cat-panel-${cat.name}`}
                 tabIndex={0}

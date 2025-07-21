@@ -1,9 +1,13 @@
 import React from "react";
+import Image from "next/image";
+
+import eclipse from "@/public/images/eclipse.svg";
 
 const TitleArea = () => {
   return (
     <section>
-      <div className="px-container container mx-auto flex flex-col items-center pt-[8em] text-center lg:items-start lg:text-left">
+      <Image src={eclipse} alt="" className="absolute inset-0 w-full" />
+      <div className="px-container relative container mx-auto flex flex-col items-center pt-[8em] text-center lg:items-start lg:text-left">
         <p className="bg-primary text-foreground w-fit rounded-full px-[1em] py-[0.4em] text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] 2xl:text-[18px]">
           Our Products
         </p>

@@ -34,7 +34,6 @@ const ProductArea = () => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Use unique key for each filter: "Category|SubCategory"
   const handleFilterChange = (filterKey: string) => {
     setCurrentPage(1);
     setSelectedFilters((prev) =>
@@ -44,7 +43,6 @@ const ProductArea = () => {
     );
   };
 
-  // Filtering logic: match both category and subCategory
   const filteredProducts =
     selectedFilters.length === 0
       ? mockProducts
@@ -55,9 +53,13 @@ const ProductArea = () => {
   const total = filteredProducts.length;
 
   return (
-    <section>
+    <section className="relative overflow-hidden">
+      {filteredProducts.length > 0 && (
+        <div className="from-primary absolute right-0 bottom-0 aspect-square w-2/5 translate-x-1/2 rounded-full bg-radial to-transparent blur-[5em]"></div>
+      )}
+
       <div className="px-container relative container mx-auto py-[2em]">
-        <div className="grid grid-cols-1 gap-[1.5em] lg:grid-cols-5">
+        <div className="relative grid grid-cols-1 gap-[1.5em] lg:grid-cols-5">
           <ProductFilterSidebar
             categories={mockCategories}
             selectedFilters={selectedFilters}

@@ -50,11 +50,18 @@ const ProductGridArea: React.FC<ProductGridAreaProps> = ({
         Showing {total} t-shirts matching your filters
       </div>
       <ProductGrid products={paginatedProducts} />
-      <Pagination
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        totalPages={totalPages}
-      />
+      {paginatedProducts.length > 0 && (
+        <Pagination
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          totalPages={totalPages}
+        />
+      )}
+      {paginatedProducts.length === 0 && (
+        <div className="pt-[2em]">
+          <p>No prodcuts found</p>
+        </div>
+      )}
     </div>
   );
 };
