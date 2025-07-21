@@ -27,8 +27,11 @@ const AllBlogs = () => {
   });
 
   return (
-    <section>
-      <div className="px-container container mx-auto py-[2em]">
+    <section className="relative">
+      <div className="from-primary absolute top-0 right-0 aspect-square w-2/5 translate-x-1/2 rounded-full bg-radial to-transparent blur-[5em]"></div>
+      <div className="from-primary absolute top-1/2 left-0 aspect-square w-2/5 -translate-x-1/2 rounded-full bg-radial to-transparent blur-[5em]"></div>
+
+      <div className="px-container relative container mx-auto py-[2em]">
         <p className="mb-[0.8em] text-[18px] font-medium uppercase sm:text-[20px] md:text-[21px] lg:text-[23px] xl:text-[25px] 2xl:text-[26px]">
           All blog posts
         </p>

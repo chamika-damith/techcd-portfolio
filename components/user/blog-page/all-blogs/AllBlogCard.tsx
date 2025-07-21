@@ -1,10 +1,19 @@
 import React from "react";
+import Image from "next/image";
+
 import { ImArrowUpRight2 } from "react-icons/im";
 
 const AllBlogCard = () => {
   return (
     <div className="grid grid-cols-1 gap-[1.5em]">
-      <div className="bg-foreground/20 h-[160px] rounded-[0.8em] sm:h-[180px] md:h-[200px] lg:h-[220px] xl:h-[240px] 2xl:h-[260px]"></div>
+      <div className="bg-foreground/20 relative h-[160px] overflow-hidden rounded-[0.8em] sm:h-[180px] md:h-[200px] lg:h-[220px] xl:h-[240px] 2xl:h-[260px]">
+        <Image
+          src="/images/sample-img.jpg"
+          alt=""
+          fill
+          className="object-cover object-center"
+        />
+      </div>
 
       <div className="flex flex-col gap-[0.5em]">
         <p className="text-primary text-[12px] font-medium sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px] 2xl:text-[17px]">

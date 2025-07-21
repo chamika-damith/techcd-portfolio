@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <section className="relative py-[3em]">
-      <hr className="mx-auto mb-[3em] w-4/5 border-t-[#4F4F4FCC] lg:hidden" />
+      <hr className="mx-auto mb-[3em] w-4/5 border-t-[#4F4F4FCC]" />
       <div className="px-container container mx-auto">
         <div className="mb-[3em] grid grid-cols-1 gap-[2em] lg:grid-cols-10">
           <p className="text-[14px] font-semibold sm:text-[16.5px] md:text-[19px] lg:col-span-4 lg:text-[21.5px] xl:text-[24px] 2xl:text-[26.5px]">

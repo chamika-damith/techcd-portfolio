@@ -1,10 +1,18 @@
 import React from "react";
+import Image from "next/image";
+
 import { IoCalendarOutline } from "react-icons/io5";
 import { ImArrowUpRight2 } from "react-icons/im";
 
 const HeaderContent = () => {
   return (
     <div className="bg-foreground/10 relative mt-[1.5em] h-[500px] overflow-hidden rounded-[1em] sm:h-[550px] md:h-[600px] lg:h-[650px] xl:h-[700px] 2xl:h-[750px]">
+      <Image
+        src="/images/sample-img.jpg"
+        alt=""
+        fill
+        className="object-cover object-center"
+      />
       <div className="absolute right-0 bottom-0 left-0 rounded-[1em] bg-black/30 px-[3em] py-[2em] text-[13px] backdrop-blur-sm sm:text-[15px] md:text-[17px] lg:text-[19px] xl:text-[20px] 2xl:text-[21px]">
         <div className="grid grid-cols-1 gap-[1.4em] lg:grid-cols-10">
           <div className="lg:col-span-9">
