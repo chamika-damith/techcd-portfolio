@@ -9,7 +9,7 @@ const UserLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
       <header className="font-primary leading-[1.1]">
         <Navbar />
       </header>
-      <main className="font-primary overflow-x-hidden leading-[1.1]">
+      <main className="font-primary overflow-hidden leading-[1.1]">
         {children}
       </main>
       <footer className="font-primary leading-[1.1]">
