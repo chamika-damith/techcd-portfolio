@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import { Checkbox } from "@/components/user/ui/Checkbox";
 
 type ProductFilterSidebarProps = {
   categories: Array<{ name: string; subCategories: string[] }>;
@@ -70,11 +71,11 @@ const ProductFilterSidebar: React.FC<ProductFilterSidebarProps> = ({
                     return (
                       <div key={sub}>
                         <label className="flex cursor-pointer items-center gap-2">
-                          <input
-                            type="checkbox"
-                            className="accent-blue-500"
+                          <Checkbox
                             checked={selectedFilters.includes(filterKey)}
-                            onChange={() => handleFilterChange(filterKey)}
+                            onCheckedChange={() =>
+                              handleFilterChange(filterKey)
+                            }
                             aria-label={`Filter by ${cat.name} ${sub}`}
                             tabIndex={0}
                           />

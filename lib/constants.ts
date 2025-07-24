@@ -3,6 +3,7 @@ import ezCash from "@/public/images/home-page/about/ez-cash.png";
 import dialog from "@/public/images/home-page/about/dialog.png";
 import binance from "@/public/images/home-page/about/binance.png";
 import xm from "@/public/images/home-page/about/xm.png";
+import xmDark from "@/public/images/home-page/about/xm-dark.png";
 import slt from "@/public/images/home-page/about/slt.png";
 
 // ----- ----- ----- NAV LINKS ----- ----- -----
@@ -40,7 +41,8 @@ export const brandCarouselData = [
   { id: "003", src: dialog, alt: "Dialog" },
   { id: "004", src: binance, alt: "Binance" },
   { id: "005", src: xm, alt: "XM" },
-  { id: "006", src: slt, alt: "SLT Mobitel" },
+  { id: "006", src: xmDark, alt: "XM" },
+  { id: "007", src: slt, alt: "SLT Mobitel" },
 ];
 
 // ----- ----- ----- HERO IMAGE GLITCH KEYFRAMES ----- ----- -----

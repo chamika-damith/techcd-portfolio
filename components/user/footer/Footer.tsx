@@ -1,4 +1,7 @@
 import React from "react";
+import Link from "next/link";
+
+import { navLinks } from "@/lib/constants";
 
 const Footer = () => {
   return (
@@ -12,11 +15,11 @@ const Footer = () => {
 
           <div className="flex justify-between text-[12px] uppercase sm:text-[13px] md:text-[14px] lg:col-span-6 lg:text-[15px] xl:text-[16px] 2xl:text-[17px]">
             <ul className="space-y-[1em] uppercase">
-              <li>Home</li>
-              <li>About</li>
-              <li>Blog</li>
-              <li>Shop</li>
-              <li>Forum</li>
+              {navLinks.map(({ href, placeholder }) => (
+                <li key={href}>
+                  <Link href={href}>{placeholder}</Link>
+                </li>
+              ))}
             </ul>
 
             <ul className="space-y-[1em] uppercase">

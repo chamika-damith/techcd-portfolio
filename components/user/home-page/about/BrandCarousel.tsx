@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
+import { cn } from "@/lib/utils";
 import { brandCarouselData } from "@/lib/constants";
 
 const BrandCarousel = () => {
@@ -40,7 +41,11 @@ const BrandCarousel = () => {
               <div
                 key={id}
                 tabIndex={-1}
-                className="flex h-[50px] items-center justify-center opacity-80 transition-opacity duration-300 hover:opacity-100 focus:opacity-100 sm:h-[62.5px] md:h-[75px] lg:h-[87.5px] xl:h-[93.8px] 2xl:h-[100px]"
+                className={cn(
+                  "flex h-[50px] items-center justify-center opacity-80 transition-opacity duration-300 hover:opacity-100 focus:opacity-100 sm:h-[62.5px] md:h-[75px] lg:h-[87.5px] xl:h-[93.8px] 2xl:h-[100px]",
+                  id === "005" && "dark:hidden",
+                  id === "006" && "hidden dark:block",
+                )}
               >
                 <Image
                   src={src}
