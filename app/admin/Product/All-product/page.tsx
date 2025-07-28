@@ -6,81 +6,117 @@ import { columns } from "./columns";
 import { FaSearch } from "react-icons/fa";
 
 
-const StudentAdmissionTable = () => {
+const AllProductsTable = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [statusFilter, setStatusFilter] = useState("all");
-  const [classFilter, setClassFilter] = useState("all");
 
-  // Mock data
-  const students = [
+  // Mock product data
+  const products = [
     {
       id: "1",
-      studentFirstName: "John",
-      studentLastName: "Doe",
-      classApplyingFor: "PRE_K1",
-      parentPhone: "123-456-7890",
-      parentEmail: "john.doe@example.com",
-      status: "Pending" as const,
+      productImage: "/images/sample-img.jpg",
+      productName: "Polo T shirt",
+      stock: "12",
+      price: "$10.00",
+      publish: "12 june, 2025",
     },
     {
       id: "2",
-      studentFirstName: "Jane",
-      studentLastName: "Smith",
-      classApplyingFor: "TODDLER",
-      parentPhone: "098-765-4321",
-      parentEmail: "jane.smith@example.com",
-      status: "Accepted" as const,
+      productImage: "/images/sample-img.jpg",
+      productName: "Polo T shirt",
+      stock: "20",
+      price: "$10.00",
+      publish: "12 june, 2025",
+    },
+    {
+      id: "3",
+      productImage: "/images/sample-img.jpg",
+      productName: "Polo T shirt",
+      stock: "Out of stock",
+      price: "$10.00",
+      publish: "12 june, 2025",
+    },
+    {
+      id: "4",
+      productImage: "/images/sample-img.jpg",
+      productName: "Polo T shirt",
+      stock: "20",
+      price: "$10.00",
+      publish: "12 june, 2025",
+    },
+    {
+      id: "5",
+      productImage: "/images/sample-img.jpg",
+      productName: "Polo T shirt",
+      stock: "20",
+      price: "$10.00",
+      publish: "12 june, 2025",
+    },
+    {
+      id: "6",
+      productImage: "/images/sample-img.jpg",
+      productName: "Polo T shirt",
+      stock: "20",
+      price: "$10.00",
+      publish: "12 june, 2025",
+    },
+    {
+      id: "7",
+      productImage: "/images/sample-img.jpg",
+      productName: "Polo T shirt",
+      stock: "20",
+      price: "$10.00",
+      publish: "12 june, 2025",
+    },
+    {
+      id: "8",
+      productImage: "/images/sample-img.jpg",
+      productName: "Polo T shirt",
+      stock: "20",
+      price: "$10.00",
+      publish: "12 june, 2025",
     },
   ];
 
   // Enhanced filtering logic
-  const filteredStudents = students.filter((student) => {
-    // Status filter
-    const statusMatches =
-      statusFilter === "all" || student.status === statusFilter;
-
-    // Class filter
-    const classMatches =
-      classFilter === "all" ||
-      student.classApplyingFor.toLowerCase() === classFilter.toLowerCase();
-
-    // Name search (searches both first and last names)
+  const filteredProducts = products.filter((product) => {
+    // Product name search
     const nameMatches =
       searchTerm === "" ||
-      (student.studentFirstName &&
-        student.studentFirstName
-          .toLowerCase()
-          .includes(searchTerm.toLowerCase())) ||
-      (student.studentLastName &&
-        student.studentLastName
+      (product.productName &&
+        product.productName
           .toLowerCase()
           .includes(searchTerm.toLowerCase()));
 
-    return statusMatches && classMatches && nameMatches;
+    return nameMatches;
   });
   return (
     <div>
       <div className="container mx-auto">
         {/* Student Table with Sorting & Search */}
-        <div className="mt-6 rounded-2xl  p-6 sm:gap-0">
+        <div className="mt-6 rounded-2xl   sm:gap-0">
           <div className="grid flex-wrap gap-4 sm:mb-6 sm:items-center sm:justify-between sm:gap-2 md:flex">
             <div>
-              <h1 className="ml-[10px] text-[28px] font-bold sm:text-[24px] md:text-[26px] lg:text-[28px] 2xl:text-[22px]">
-                All Admissions
-              </h1>
+              <div className="flex items-center gap-4">
+                                 <h1 className="text-[28px] font-bold sm:text-[24px] md:text-[26px] lg:text-[28px] xl:text-[30px] text-[#E5E5E5]">
+                   Products
+                 </h1>
+                 <span className="text-[17px] text-[#E5E5E5] font-semibold sm:text-[18px] md:text-[19px] lg:text-[20px] xl:text-[20px] mt-2">
+                   All products
+                 </span>
+              </div>
             </div>
 
-            <div className="mr-[50px] grid flex-wrap gap-4 sm:flex sm:gap-4">
+            <div className=" grid flex-wrap gap-4 sm:flex sm:gap-4">
               {/* Search Bar */}
-              <div className="relative mr-[100px]">
+              <div className="relative">
                 <input
                   type="text"
-                  placeholder="Search by name"
+                  placeholder="Search For..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-[220px] rounded-2xl bg-[#F9FBFF]  px-3 pl-10 md:w-[250px] lg:w-[280px] xl:w-[285px] 2xl:w-[305px]"
+                  className="w-[220px] rounded-3xl bg-[#0B1739]  px-3 pl-10 py-3 md:w-[250px] lg:w-[280px] xl:w-[285px] 2xl:w-[285px] border-[#FFFFFF33]/20 text-[14px]"
                 />
-                <FaSearch className="absolute top-1/2 left-3 -translate-y-1/2 transform text-black" />
+                                 <FaSearch className="absolute top-1/2 left-3 xl:-translate-y-1 -translate-y-1/2 transform text-[#AEB9E1] text-[14px]" />
               </div>
 
               {/* Status Filter */}
@@ -135,7 +171,7 @@ const StudentAdmissionTable = () => {
           </div>
 
           <div className="mt-[10px] sm:mt-0">
-            <DataTable columns={columns} data={filteredStudents} />
+            <DataTable columns={columns} data={filteredProducts} />
           </div>
         </div>
       </div>
@@ -143,4 +179,4 @@ const StudentAdmissionTable = () => {
   );
 };
 
-export default StudentAdmissionTable;
+export default AllProductsTable;

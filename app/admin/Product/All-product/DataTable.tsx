@@ -58,15 +58,18 @@ export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
   };
 
   return (
-    <div className="rounded-md border-none">
+    <div className="rounded-md border-none ">
       {/* Scrollable Table for Mobile */}
-      <div className="overflow-auto">
+      <div className="overflow-auto ">
         <Table className="w-full min-w-[600px] border-none table-fixed">
-          <TableHeader className="border-none">
+          <TableHeader className="border-none bg-[#0B1739] [&:hover]:bg-[#0B1739] [&_*]:hover:bg-transparent">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id} className="border-none">
-                {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id} className="border-none py-2 px-4 text-sm md:text-base whitespace-nowrap truncate">
+                {headerGroup.headers.map((header: any, index: number) => (
+                  <TableHead 
+                    key={header.id} 
+                    className={`border-none py-6 px-4 text-sm md:text-base whitespace-nowrap truncate text-white font-medium`}
+                  >
                     {flexRender(header.column.columnDef.header, header.getContext())}
                   </TableHead>
                 ))}
@@ -80,14 +83,8 @@ export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
                   {row.getVisibleCells().map((cell, cellIndex) => (
                     <TableCell
                       key={cell.id}
-                      className={`border-none py-2 px-4 text-xs md:text-sm truncate ${
-                        rowIndex % 2 === 0 ? "bg-[#D5EEE2]" : "bg-white"
-                      } ${
-                        cellIndex === 0
-                          ? "rounded-l-3xl"
-                          : cellIndex === row.getVisibleCells().length - 1
-                          ? "rounded-r-3xl"
-                          : ""
+                      className={`border-none py-4 px-4 text-xs md:text-sm truncate text-white ${
+                        rowIndex % 2 === 0 ? "bg-[#081028]" : "bg-[#0B1739]"
                       }`}
                       title={String(flexRender(cell.column.columnDef.cell, cell.getContext()))} // Tooltip for overflow text
                     >
@@ -111,7 +108,7 @@ export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
       <div className="mt-4 flex justify-end">
         <div className="flex gap-1 md:gap-2">
           <button
-            className="rounded-full w-6 h-6 md:w-8 md:h-8 text-xs md:text-sm flex items-center justify-center text-black transition bg-[#F5F5F5] border border-[#EEEEEE] disabled:opacity-50"
+            className="rounded-full w-6 h-6 md:w-8 md:h-8 text-xs md:text-sm flex items-center justify-center text-white transition bg-[#31406D] border border-[#EEEEEE] disabled:opacity-50"
             onClick={() => setPagination((prev) => ({ ...prev, pageIndex: prev.pageIndex - 1 }))}
             disabled={currentPage === 0}
           >
@@ -128,8 +125,8 @@ export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
                 key={page}
                 className={`rounded-full w-6 h-6 md:w-8 md:h-8 text-xs md:text-sm flex items-center justify-center transition ${
                   page === currentPage
-                    ? "bg-[#2CAB6D] text-white"
-                    : "bg-[#EEEEEE] text-black hover:bg-gray-300"
+                    ? "bg-[#FFFFFF] text-black"
+                    : "bg-[#0B1739] text-white"
                 }`}
                 onClick={() => setPagination((prev) => ({ ...prev, pageIndex: page as number }))}>
                 {typeof page === "number" ? page + 1 : page}
@@ -138,7 +135,7 @@ export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
           )}
 
           <button
-            className="rounded-full w-6 h-6 md:w-8 md:h-8 text-xs md:text-sm flex items-center justify-center text-black transition bg-[#F5F5F5] border border-[#EEEEEE] disabled:opacity-50"
+            className="rounded-full w-6 h-6 md:w-8 md:h-8 text-xs md:text-sm flex items-center justify-center text-white transition bg-[#31406D] border border-[#EEEEEE] disabled:opacity-50"
             onClick={() => setPagination((prev) => ({ ...prev, pageIndex: prev.pageIndex + 1 }))}
             disabled={currentPage === totalPages - 1}
           >
