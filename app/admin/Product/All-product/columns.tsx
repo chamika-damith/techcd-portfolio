@@ -1,92 +1,66 @@
 "use client";
 import { RiEyeLine } from "react-icons/ri";
+import { FiEdit } from "react-icons/fi";
+import { FiTrash2 } from "react-icons/fi";
 import { ColumnDef } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
-// Define Student type
-type Student = {
+// Define Product type
+type Product = {
   id: string;
-  studentFirstName: string;
-  studentLastName: string;
-  classApplyingFor: string;
-  parentPhone: string;
-  parentEmail: string;
-  status: "Pending" | "Accepted" | "Declined";
+  productImage: string;
+  productName: string;
+  stock: string;
+  price: string;
+  publish: string;
 };
 
-export const columns: ColumnDef<Student>[] = [
+export const columns: ColumnDef<Product>[] = [
   {
-    accessorKey: "studentFirstName",
-    header: "Student Name",
+    accessorKey: "productImage",
+    header: "Product Image",
     cell: ({ row }) => {
-      const firstName = row.original.studentFirstName || "";
-      const lastName = row.original.studentLastName || "";
-      return `${firstName} ${lastName}`;
-    },
-  },
-  {
-    accessorKey: "classApplyingFor",
-    header: "Class Type",
-    cell: ({ row }) => {
-      const classMap: Record<string, string> = {
-        "18_24_MONTHS": "Month(18-24)",
-        TODDLER: "Toddler(2-3)",
-        PRE_K1: "Pre K1(3-4)",
-        SECOND_YEAR: "2nd Year(4-5)",
-        THIRD_YEAR: "Kindergarten(5-6)",
-      };
       return (
-        classMap[row.original.classApplyingFor] || row.original.classApplyingFor
+        <img 
+          src={row.original.productImage} 
+          alt={row.original.productName}
+          className="w-10 h-10 rounded-full object-cover"
+        />
       );
     },
   },
   {
-    accessorKey: "parentPhone",
-    header: "Phone Number",
-  },
-  {
-    accessorKey: "parentEmail",
-    header: "Email",
-  },
-  {
-    accessorKey: "status",
-    header: "Status",
+    accessorKey: "productName",
+    header: "Product Name",
     cell: ({ row }) => {
-      const [isUpdating, setIsUpdating] = useState(false);
-      const currentStatus = row.original.status;
-
-      const statusColor: Record<Student["status"], string> = {
-        Pending: "text-[#0F5FC2]",
-        Declined: "text-[#D0004B]",
-        Accepted: "text-[#00AC4F]",
-      };
-
-      const handleStatusChange = (
-        event: React.ChangeEvent<HTMLSelectElement>,
-      ) => {
-        const newStatus = event.target.value as Student["status"];
-        // Status change logic can be added here if needed
-      };
-
+      return row.original.productName;
+    },
+  },
+  {
+    accessorKey: "stock",
+    header: "Stock",
+    cell: ({ row }) => {
+      const stock = row.original.stock;
       return (
-        <select
-          value={currentStatus}
-          onChange={handleStatusChange}
-          disabled={isUpdating}
-          className={`rounded bg-transparent py-1 text-sm ${statusColor[currentStatus]} px-2`}
-        >
-          <option value="Pending" className="text-[#0F5FC2]">
-            Pending
-          </option>
-          <option value="Accepted" className="text-[#00AC4F]">
-            Accepted
-          </option>
-          <option value="Declined" className="text-[#D0004B]">
-            Declined
-          </option>
-        </select>
+        <span className={stock === "Out of stock" ? "text-red-500" : ""}>
+          {stock}
+        </span>
       );
+    },
+  },
+  {
+    accessorKey: "price",
+    header: "Price",
+    cell: ({ row }) => {
+      return row.original.price;
+    },
+  },
+  {
+    accessorKey: "publish",
+    header: "Publish",
+    cell: ({ row }) => {
+      return row.original.publish;
     },
   },
   {
@@ -95,18 +69,44 @@ export const columns: ColumnDef<Student>[] = [
     cell: ({ row }) => {
       const handleViewClick = () => {
         // View action - can be implemented later
-        console.log("View student:", row.original);
+        console.log("View product:", row.original);
+      };
+
+      const handleEditClick = () => {
+        // Edit action - can be implemented later
+        console.log("Edit product:", row.original);
+      };
+
+      const handleDeleteClick = () => {
+        // Delete action - can be implemented later
+        console.log("Delete product:", row.original);
       };
 
       return (
-        <div className="ml-[-10px] flex space-x-2">
+        <div className="ml-[-25px] flex space-x-0">
           <Button
             variant="ghost"
             onClick={handleViewClick}
-            className="rounded p-2 hover:bg-gray-100"
+            className="rounded p-2 bg-none "
             aria-label="View student details"
           >
-            <RiEyeLine size={20} className="text-gray-600" />
+            <RiEyeLine size={20} className="text-white" />
+          </Button>
+          <Button
+            variant="ghost"
+            onClick={handleEditClick}
+            className="rounded p-2 bg-none hover:bg-transparent"
+            aria-label="Edit student details"
+          >
+            <FiEdit size={20} className="text-white" />
+          </Button>
+          <Button
+            variant="ghost"
+            onClick={handleDeleteClick}
+            className="rounded p-2 bg-none hover:bg-transparent"
+            aria-label="Delete student"
+          >
+            <FiTrash2 size={20} className="text-white" />
           </Button>
         </div>
       );
