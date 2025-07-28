@@ -79,7 +79,7 @@ const Sidebar: React.FC = () => {
                   }`}
               >
                 <FaTachometerAlt className="h-[20px] w-[20px]" />
-                <Link href="/admin" className="text-[16px]">Dashboard</Link>
+                <Link href="/admin" className="text-[16px] text-[#E5E5E5] font-semibold">Dashboard</Link>
               </li>
 
               {/* <li
@@ -99,33 +99,38 @@ const Sidebar: React.FC = () => {
                 >
                   <div className="flex items-center space-x-4">
                     <FaBoxOpen className="h-[20px] w-[20px]" />
-                    <span className="text-[16px]"> product</span>
+                    <span className="text-[16px] text-[#E5E5E5] font-semibold"> product</span>
                   </div>
                   {isBlogOpen ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
                 </button>
 
                 {isBlogOpen && (
                   <ul className="ml-8 mt-2 space-y-2  ">
-                                         <li
-                       className={`flex items-center space-x-3 px-8 py-2   rounded-xl ${isActive("/admin/Product/All-product") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white  " : ""
-                         }`}
-                     >
-                      <FaBoxes className="h-[20px] w-[20px]" />
-                      <Link href="/admin/Product/All-product" className="text-[16px]">All Products</Link>
-                    </li>
                     <li
-                      className={`flex items-center space-x-3 px-8 py-2   rounded-xl ${isActive("/admin/Product/add-product") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white " : ""
+                      className={`flex items-center space-x-3 ml-[-16px] pl-[50px] pr-8 py-2 rounded-xl ${isActive("/admin/Product/All-product")
+                          ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white"
+                          : ""
+                        }`}
+                    >
+                      <FaBoxes className="h-[20px] w-[20px]" />
+                      <Link href="/admin/Product/All-product" className="text-[16px] text-[#E5E5E5] font-semibold">
+                        All Products
+                      </Link>
+                    </li>
+
+                    <li
+                      className={`flex items-center space-x-3 ml-[-16px] pl-[50px] pr-8 py-2   rounded-xl ${isActive("/admin/Product/add-product") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white " : ""
                         }`}
                     >
                       <FaPlusSquare className="h-[20px] w-[20px]" />
-                      <Link href="/admin/Product/add-product" className="text-[16px]">Create Product</Link>
+                      <Link href="/admin/Product/add-product" className="text-[16px] text-[#E5E5E5] font-semibold">Create Product</Link>
                     </li>
                     <li
-                      className={`flex items-center space-x-3 px-8 py-2 rounded-3xl ${isActive("/admin/blog/add-blog") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
+                      className={`flex items-center space-x-3 ml-[-16px] pl-[50px] pr-8 py-2 rounded-xl ${isActive("/admin/blog/add-blog") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
                         }`}
                     >
                       <MdCategory className="h-[20px] w-[20px]" />
-                      <Link href="/admin/blog/add-blog" className="text-[16px]">Category</Link>
+                      <Link href="/admin/blog/add-blog" className="text-[16px] text-[#E5E5E5] font-semibold">Category</Link>
                     </li>
                     {/* <li className={`flex items-center space-x-3 px-6 py-2 rounded-3xl ${isActive("/admin/blog/blog-categories") ? "bg-[#2CAB6D] text-white" : ""}`}>
                       <FaTags className="text-[14px]" />
@@ -142,32 +147,32 @@ const Sidebar: React.FC = () => {
               {/* Event Dropdown */}
               <li className="relative">
                 <button
-                  className={`flex items-center justify-between w-full px-6 py-2 rounded-3xl ${isActive("/admin/Event") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
+                  className={`flex items-center justify-between w-full px-6 py-2 rounded-xl ${isActive("/admin/Event") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
                     }`}
                   onClick={() => setIsEventOpen(!isEventOpen)}
                 >
                   <div className="flex items-center space-x-4">
                     <FaUsers className="h-[20px] w-[20px]" />
-                    <span className="text-[16px]">Customers</span>
+                    <span className="text-[16px] text-[#E5E5E5] font-semibold">Customers</span>
                   </div>
                   {isEventOpen ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
                 </button>
 
                 {isEventOpen && (
-                  <ul className="ml-8 mt-2 space-y-2  pl-4">
+                  <ul className="ml-8 mt-2 space-y-2 ">
                     <li
-                      className={`flex items-center space-x-3 px-2 py-2 rounded-3xl  ${isActive("/admin/event/all-event") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white " : ""
+                      className={`flex items-center space-x-3 ml-[-16px] pl-[50px] pr-8 py-2 rounded-xl  ${isActive("/admin/event/all-event") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white " : ""
                         }`}
                     >
                       <FaUsers className="h-[20px] w-[20px]" />
-                      <Link href="/admin/event/all-event" className="text-[16px]">All Customers</Link>
+                      <Link href="/admin/event/all-event" className="text-[16px] text-[#E5E5E5] font-semibold">All Customers</Link>
                     </li>
                     <li
-                      className={`flex items-center space-x-2 px-2 py-2   rounded-3xl ${isActive("/admin/event/add-event") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
+                      className={`flex items-center space-x-3 ml-[-16px] pl-[50px] pr-8 py-2    rounded-3xl ${isActive("/admin/event/add-event") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
                         }`}
                     >
                       <FaUserPlus className="h-[20px] w-[20px]" />
-                      <Link href="/admin/event/add-event" className="text-[16px]">Add Customers</Link>
+                      <Link href="/admin/event/add-event" className="text-[16px] text-[#E5E5E5] font-semibold">Add Customers</Link>
                     </li>
                   </ul>
                 )}
@@ -175,59 +180,59 @@ const Sidebar: React.FC = () => {
 
               <li className="relative">
                 <button
-                  className={`flex items-center justify-between w-full px-6 py-2 rounded-3xl ${isActive("") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""}`}
+                  className={`flex items-center justify-between w-full px-6 py-2 rounded-xl ${isActive("") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""}`}
                   onClick={() => setIsGalleryOpen(!isGalleryOpen)} // Toggle Gallery Dropdown
                 >
                   <div className="flex items-center space-x-4">
                     <FaUser className="h-[20px] w-[20px]" />
-                    <span className="text-[16px]">Users</span>
+                    <span className="text-[16px] text-[#E5E5E5] font-semibold">Users</span>
                   </div>
                   {isGalleryOpen ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
                 </button>
 
                 {isGalleryOpen && (
-                  <ul className="ml-8 mt-2 space-y-2 pl-4">
+                  <ul className="ml-8 mt-2 space-y-2 ">
                     <li
-                      className={`flex items-center space-x-4 px-2 py-2 rounded-3xl ${isActive("/admin/gallery") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""}`}
+                      className={`flex items-center space-x-3 ml-[-16px] pl-[50px] pr-8 py-2 rounded-xl ${isActive("/admin/gallery") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""}`}
                     >
                       <FaUsers className="h-[20px] w-[20px]" />
-                      <Link href="/admin/gallery" className="text-[16px]">All Users</Link>
+                      <Link href="/admin/gallery" className="text-[16px] text-[#E5E5E5] font-semibold">All Users</Link>
                     </li>
                     <li
-                      className={`flex items-center space-x-4 px-2 py-2 rounded-3xl ${isActive("/admin/gallery/gallery-category") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""}`}
+                      className={`flex items-center space-x-3 ml-[-16px] pl-[50px] pr-8 py-2 rounded-xl ${isActive("/admin/gallery/gallery-category") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""}`}
                     >
                       <FaUserPlus className="h-[20px] w-[20px]" />
-                      <Link href="/admin/gallery/gallery-category" className="text-[16px]"> Add Users</Link>
+                      <Link href="/admin/gallery/gallery-category" className="text-[16px] text-[#E5E5E5] font-semibold"> Add Users</Link>
                     </li>
                     <li
-                      className={`flex items-center space-x-4 px-2 py-2 rounded-3xl ${isActive("/admin/gallery/gallery-category") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""}`}
+                      className={`flex items-center space-x-3 ml-[-16px] pl-[50px] pr-8 py-2   rounded-xl ${isActive("/admin/gallery/gallery-category") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""}`}
                     >
                       <FaUserShield className="h-[20px] w-[20px]" />
-                      <Link href="/admin/gallery/gallery-category" className="text-[16px]"> User role </Link>
+                      <Link href="/admin/gallery/gallery-category" className="text-[16px] text-[#E5E5E5] font-semibold"> User role </Link>
                     </li>
                   </ul>
                 )}
               </li>
               <li
-                className={`flex items-center space-x-4 px-6 py-2 rounded-3xl ${isActive("/admin/Profile") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
+                className={`flex items-center space-x-4 px-6 py-2 rounded-xl ${isActive("/admin/Profile") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
                   }`}
               >
                 <FaShoppingCart className="h-[20px] w-[20px]" />
-                <Link href="/admin/Profile" className="text-[16px]">Orders</Link>
+                <Link href="/admin/Profile" className="text-[16px] text-[#E5E5E5] font-semibold">Orders</Link>
               </li>
               <li
-                className={`flex items-center space-x-4 px-6 py-2 rounded-3xl ${isActive("/admin/Profile") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
+                className={`flex items-center space-x-4 px-6 py-2 rounded-xl ${isActive("/admin/Profile") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
                   }`}
               >
                 <FaTicketAlt className="h-[20px] w-[20px]" />
-                <Link href="/admin/Profile" className="text-[16px]">Coupons</Link>
+                <Link href="/admin/Profile" className="text-[16px] text-[#E5E5E5] font-semibold">Coupons</Link>
               </li>
               <li
-                className={`flex items-center space-x-4 px-6 py-2 rounded-3xl ${isActive("/admin/Profile") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
+                className={`flex items-center space-x-4 px-6 py-2 rounded-xl ${isActive("/admin/Profile") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
                   }`}
               >
                 <FaUserCircle className="h-[20px] w-[20px]" />
-                <Link href="/admin/Profile" className="text-[16px]">Profile</Link>
+                <Link href="/admin/Profile" className="text-[16px] text-[#E5E5E5] font-semibold">Profile</Link>
               </li>
               {/* <li>
                 
