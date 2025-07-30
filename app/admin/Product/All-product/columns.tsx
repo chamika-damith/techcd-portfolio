@@ -5,6 +5,7 @@ import { FiTrash2 } from "react-icons/fi";
 import { ColumnDef } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 // Define Product type
 type Product = {
@@ -67,14 +68,16 @@ export const columns: ColumnDef<Product>[] = [
     id: "actions",
     header: "Action",
     cell: ({ row }) => {
+      const router = useRouter();
+
       const handleViewClick = () => {
-        // View action - can be implemented later
-        console.log("View product:", row.original);
+        // Navigate to view product page
+        router.push(`/admin/Product/All-product/view-product/${row.original.id}`);
       };
 
       const handleEditClick = () => {
-        // Edit action - can be implemented later
-        console.log("Edit product:", row.original);
+        // Navigate to edit product page
+        router.push(`/admin/Product/All-product/edit-product/${row.original.id}`);
       };
 
       const handleDeleteClick = () => {
@@ -85,25 +88,25 @@ export const columns: ColumnDef<Product>[] = [
       return (
         <div className="ml-[-25px] flex space-x-0">
           <Button
-            variant="ghost"
+           
             onClick={handleViewClick}
-            className="rounded p-2 bg-none "
+            className="rounded p-2 bg-transparent hover:bg-transparent focus:bg-transparent"
             aria-label="View student details"
           >
             <RiEyeLine size={20} className="text-white" />
           </Button>
           <Button
-            variant="ghost"
+           
             onClick={handleEditClick}
-            className="rounded p-2 bg-none hover:bg-transparent"
+            className="rounded p-2 bg-transparent hover:bg-transparent focus:bg-transparent"
             aria-label="Edit student details"
           >
             <FiEdit size={20} className="text-white" />
           </Button>
           <Button
-            variant="ghost"
+           
             onClick={handleDeleteClick}
-            className="rounded p-2 bg-none hover:bg-transparent"
+            className="rounded p-2 bg-transparent hover:bg-transparent focus:bg-transparent"
             aria-label="Delete student"
           >
             <FiTrash2 size={20} className="text-white" />
