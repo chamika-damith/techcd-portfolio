@@ -99,7 +99,7 @@ const Sidebar: React.FC = () => {
                 >
                   <div className="flex items-center space-x-4">
                     <FaBoxOpen className="h-[20px] w-[20px]" />
-                    <span className="text-[16px] text-[#E5E5E5] font-semibold"> product</span>
+                    <span className="text-[16px] text-[#E5E5E5] font-semibold"> Product</span>
                   </div>
                   {isBlogOpen ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}
                 </button>
