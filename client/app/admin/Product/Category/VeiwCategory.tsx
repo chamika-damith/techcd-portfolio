@@ -32,7 +32,7 @@ const ViewCategory: React.FC<ViewCategoryProps> = ({ onClose, category }) => {
           {/* Name Display */}
           <div className="space-y-2">
             <label className="block text-[17px] font-medium text-[#FFFFFF]">Name</label>
-            <div className="mt-1 block w-full rounded-lg border border-[#172D6D] p-2 text-sm bg-transparent text-white">
+            <div className="mt-1 block w-full rounded-lg border border-[#172D6D] p-3 text-sm bg-transparent text-white">
               {category.categoryName}
             </div>
           </div>
@@ -40,29 +40,17 @@ const ViewCategory: React.FC<ViewCategoryProps> = ({ onClose, category }) => {
           {/* Description Display */}
           <div className="space-y-2">
             <label className="block text-[17px] font-medium text-[#FFFFFF]">Description</label>
-            <div className="mt-1 block w-full rounded-sm border border-[#172D6D] p-2 text-sm h-24 bg-transparent text-white overflow-y-auto">
+            <div className="mt-1 block w-full rounded-sm border border-[#172D6D] p-3 text-sm h-24 bg-transparent text-white overflow-y-auto">
               {category.description}
             </div>
           </div>
 
-          {/* ID Display */}
-          <div className="space-y-2">
-            <label className="block text-[17px] font-medium text-[#FFFFFF]">Category ID</label>
-            <div className="mt-1 block w-full rounded-lg border border-[#172D6D] p-2 text-sm bg-transparent text-white">
-              {category.id}
-            </div>
-          </div>
+          
+         
         </div>
 
         {/* Action Buttons */}
-        <div className="mt-6 flex justify-end">
-          <button
-            onClick={onClose}
-            className="px-4 py-2 bg-[#028EFC] text-white rounded-lg hover:bg-[#028EFC]/80 transition-colors"
-          >
-            Close
-          </button>
-        </div>
+       
       </div>
     </div>
   );

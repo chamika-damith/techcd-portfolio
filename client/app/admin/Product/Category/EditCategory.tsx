@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { X } from "lucide-react";
-
+import EditButton from "./EditButton";
 interface Category {
   id: string;
   categoryName: string;
@@ -76,7 +76,7 @@ const EditCategory: React.FC<EditCategoryProps> = ({ onClose, category, onCatego
               type="text"
               value={categoryName}
               onChange={(e) => setCategoryName(e.target.value)}
-              className="mt-1 block w-full rounded-lg border border-[#172D6D] p-2 text-sm bg-transparent text-white"
+              className="mt-1 block w-full rounded-lg border border-[#172D6D] p-3 text-sm bg-transparent text-white"
               placeholder="Enter category name"
               disabled={loading}
             />
@@ -88,7 +88,7 @@ const EditCategory: React.FC<EditCategoryProps> = ({ onClose, category, onCatego
             <textarea
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="mt-1 block w-full rounded-sm border border-[#172D6D] p-2 text-sm h-24 bg-transparent text-white"
+              className="mt-1 block w-full rounded-sm border border-[#172D6D] p-3 text-sm h-24 bg-transparent text-white"
               placeholder="Optional description"
               disabled={loading}
             />
@@ -98,19 +98,12 @@ const EditCategory: React.FC<EditCategoryProps> = ({ onClose, category, onCatego
 
         {/* Action Buttons */}
         <div className="mt-6 flex justify-end space-x-3">
-          <button
-            onClick={onClose}
-            className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
-          >
-            Cancel
-          </button>
-          <button
-            onClick={handleSubmit}
+        <EditButton
+            identifier="edit-student"
+            buttonText={loading ? "Updating..." : "Update"}
+           
             disabled={loading}
-            className="px-4 py-2 bg-[#028EFC] text-white rounded-lg hover:bg-[#028EFC]/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-          >
-            {loading ? "Updating..." : "Update Category"}
-          </button>
+          />
         </div>
       </div>
     </div>
