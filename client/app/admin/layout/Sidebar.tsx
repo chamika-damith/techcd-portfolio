@@ -16,6 +16,7 @@ import {
   FaBoxes,
 } from "react-icons/fa";
 import { MdCategory } from "react-icons/md";
+import { BiCustomize } from "react-icons/bi";
 import { usePathname } from "next/navigation";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
@@ -126,11 +127,18 @@ const Sidebar: React.FC = () => {
                       <Link href="/admin/Product/add-product" className="text-[16px] text-[#E5E5E5] font-semibold">Create Product</Link>
                     </li>
                     <li
-                      className={`flex items-center space-x-3 ml-[-30px] pl-[50px] pr-8 py-2 rounded-xl ${isActive("/admin/blog/add-blog") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
+                      className={`flex items-center space-x-3 ml-[-30px] pl-[50px] pr-8 py-2 rounded-xl ${isActive("/admin/Product/Category") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
                         }`}
                     >
                       <MdCategory className="h-[20px] w-[20px]" />
                       <Link href="/admin/Product/Category" className="text-[16px] text-[#E5E5E5] font-semibold">Category</Link>
+                    </li>
+                    <li
+                      className={`flex items-center space-x-3 ml-[-30px] pl-[50px] pr-8 py-2 rounded-xl ${isActive("/admin/Product/Attribute") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
+                        }`}
+                    >
+                      <BiCustomize className="h-[20px] w-[20px]" />
+                      <Link href="/admin/Product/Attribute" className="text-[16px] text-[#E5E5E5] font-semibold">Attribute</Link>
                     </li>
                     {/* <li className={`flex items-center space-x-3 px-6 py-2 rounded-3xl ${isActive("/admin/blog/blog-categories") ? "bg-[#2CAB6D] text-white" : ""}`}>
                       <FaTags className="text-[14px]" />
