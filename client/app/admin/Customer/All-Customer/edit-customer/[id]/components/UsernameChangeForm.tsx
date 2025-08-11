@@ -1,0 +1,77 @@
+"use client";
+
+import React, { useState } from 'react';
+import { ArrowLeft, ArrowUpRight } from 'lucide-react';
+import Editbutton from './Editbutton';
+interface UsernameChangeFormProps {
+  onClose: () => void;
+  onSave: (usernameData: { newUsername: string; currentPassword: string }) => void;
+}
+
+const UsernameChangeForm: React.FC<UsernameChangeFormProps> = ({
+  onClose,
+  onSave
+}) => {
+  const [newUsername, setNewUsername] = useState('');
+  const [currentPassword, setCurrentPassword] = useState('');
+
+  const handleSave = () => {
+    onSave({ newUsername, currentPassword });
+    onClose();
+  };
+
+  return (
+    <div className="w-full">
+      {/* Header with Back Arrow and Title */}
+      <div className="flex items-center mb-8">
+        <button
+          onClick={onClose}
+          className="mr-4 p-2 hover:bg-[#172D6D] rounded-lg transition-colors"
+        >
+          <ArrowLeft className="w-5 h-5 text-white" />
+        </button>
+        <h1 className="2xl:text-2xl text-[16px] font-semibold text-[#E5E5E5]">
+          Account Credential
+        </h1>
+      </div>
+
+      {/* Username Change Fields */}
+      <div className="space-y-6">
+        {/* User Name */}
+        <div>
+          <label className="block text-[#FFFFFF] text-[17px] font-medium mb-3">
+            User Name
+          </label>
+          <input
+            type="text"
+            value={newUsername}
+            onChange={(e) => setNewUsername(e.target.value)}
+            className="w-full px-4 py-1 bg-[#0B1739]  rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-[#3B82F6] transition-colors"
+          
+          />
+        </div>
+
+        {/* Current Password */}
+        <div>
+          <label className="block text-[#FFFFFF] text-[17px] font-medium mb-3">
+            Current Password
+          </label>
+          <input
+            type="password"
+            value={currentPassword}
+            onChange={(e) => setCurrentPassword(e.target.value)}
+            className="w-full px-4 py-1 bg-[#0B1739]  rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-[#3B82F6] transition-colors"
+         
+          />
+        </div>
+      </div>
+
+      {/* Save Changes Button */}
+      <div className="flex justify-end pt-8">
+      <Editbutton identifier="add-product-btn" buttonText="Save Changes" />
+      </div>
+    </div>
+  );
+};
+
+export default UsernameChangeForm;
