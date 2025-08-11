@@ -17,11 +17,11 @@ const Title = () => {
       const heading = textRef.current;
       if (!heading) return;
 
-      const split = new SplitText(heading, { type: "chars" });
-      const tween = gsap.from(split.chars, {
+      const split = new SplitText(heading, { type: "words" });
+      const tween = gsap.from(split.words, {
         opacity: 0,
         y: "0.5em",
-        stagger: 0.1,
+        stagger: 0.2,
         transformOrigin: "50% 50%",
         scrollTrigger: {
           trigger: heading,
@@ -38,13 +38,13 @@ const Title = () => {
   return (
     <div
       ref={container}
-      className="mb-[0.5em] text-[25px] sm:text-[38.75px] md:text-[52.5px] lg:text-[66.25px] xl:text-[80px] 2xl:text-[93.75px]"
+      className="w-[14ch] text-[25px] sm:w-[10ch] sm:text-[40.2px] md:text-[55.4px] lg:hidden lg:text-[68.2px] xl:text-[81px] 2xl:text-[93.8px]"
     >
       <p
         ref={textRef}
-        className="font-secondary section-title dark:from-foreground font-semibold perspective-distant dark:bg-gradient-to-b dark:to-[#999999] dark:bg-clip-text dark:text-transparent"
+        className="font-secondary text-foreground dark:from-foreground font-semibold dark:bg-gradient-to-b dark:to-[#999999] dark:bg-clip-text dark:text-transparent"
       >
-        Our Clients
+        Join The Exclusive Merch <span className="text-primary">Store</span>
       </p>
     </div>
   );

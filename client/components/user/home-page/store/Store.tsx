@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 
+import Title from "./Title";
+import TitleLg from "./TitleLg";
 import ProductCarousel from "./ProductCarousel";
 import PrimaryButton from "../../ui/PrimaryButton";
 
@@ -21,9 +23,7 @@ const Store = () => {
       <div className="px-container container mx-auto grid grid-cols-1 gap-[1em] lg:grid-cols-11">
         <div className="lg:col-span-6">
           {/* Title (for screens <640px) */}
-          <p className="font-secondary to-foreground dark:from-foreground w-[14ch] bg-gradient-to-b from-[#999999] bg-clip-text text-[25px] font-semibold text-transparent sm:w-[10ch] sm:text-[40.2px] md:text-[55.4px] lg:hidden lg:text-[68.2px] xl:text-[81px] 2xl:text-[93.8px] dark:to-[#999999]">
-            Join The Exclusive Merch <span className="text-primary">Store</span>
-          </p>
+          <Title />
 
           <div className="relative mt-[1.5em] aspect-square">
             {/* Leaklight */}
@@ -41,11 +41,13 @@ const Store = () => {
 
             {/* Carousel container */}
             <div className="relative mx-auto flex h-full w-56/100 items-end pb-[2em]">
+              <ProductCarousel />
+
               <svg
                 viewBox="0 0 180 322"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="absolute inset-0"
+                className="pointer-events-none absolute inset-0 z-[1]"
               >
                 <path
                   d="M11.0254 1.78613H118.045C123.419 1.78613 127.775 6.14285 127.775 11.5166V48.6123C127.775 54.8816 132.858 59.9638 139.127 59.9639H168.733C174.107 59.9641 178.463 64.3207 178.463 69.6943V311.121C178.463 316.495 174.107 320.85 168.733 320.851H11.0254C5.65177 320.851 1.29514 316.495 1.29492 311.121V11.5166C1.29492 6.14285 5.65164 1.78613 11.0254 1.78613Z"
@@ -53,17 +55,13 @@ const Store = () => {
                   className="dark:stroke-foreground stroke-[#dfdfdf]"
                 />
               </svg>
-
-              <ProductCarousel />
             </div>
           </div>
         </div>
 
         <div className="relative grid grid-cols-11 items-end gap-[1em] lg:col-span-5">
           {/* Title (for screens >=640px) */}
-          <p className="font-secondary to-foreground dark:from-foreground col-span-full mt-[0.5em] hidden w-[14ch] bg-gradient-to-b from-[#999999] bg-clip-text text-[25px] font-semibold text-transparent sm:w-[10ch] sm:text-[40.2px] md:text-[55.4px] lg:block lg:text-[68.2px] xl:text-[81px] 2xl:text-[93.8px] dark:to-[#999999]">
-            Join The Exclusive Merch <span className="text-primary">Store</span>
-          </p>
+          <TitleLg />
 
           <div className="relative col-span-5 aspect-[10/13]">
             <svg
