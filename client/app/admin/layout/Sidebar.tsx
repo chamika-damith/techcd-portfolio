@@ -201,10 +201,10 @@ const Sidebar: React.FC = () => {
                 {isGalleryOpen && (
                   <ul className="ml-8 mt-2 space-y-2 ">
                     <li
-                      className={`flex items-center space-x-3 ml-[-30px] pl-[50px] pr-8 py-2 rounded-md ${isActive("/admin/gallery") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""}`}
+                      className={`flex items-center space-x-3 ml-[-30px] pl-[50px] pr-8 py-2 rounded-md ${isActive("/admin/User/All-user") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""}`}
                     >
                       <FaUsers className="h-[20px] w-[20px]" />
-                      <Link href="/admin/gallery" className="text-[16px] text-[#E5E5E5] font-semibold">All Users</Link>
+                      <Link href="/admin/User/All-user" className="text-[16px] text-[#E5E5E5] font-semibold">All Users</Link>
                     </li>
                     <li
                       className={`flex items-center space-x-3 ml-[-30px] pl-[50px] pr-8 py-2 rounded-md ${isActive("/admin/gallery/gallery-category") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""}`}
