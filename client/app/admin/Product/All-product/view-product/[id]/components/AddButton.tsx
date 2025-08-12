@@ -5,7 +5,6 @@ import { GoArrowUpRight } from "react-icons/go";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   identifier: string;
   buttonText: string;
@@ -32,10 +31,10 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Button
         ref={ref}
-        
+       
         className={cn(
           identifier,
-          "relative flex items-center bg-[#028EFC] text-white p-2 rounded-md shadow-md transition-all duration-300 ease-in  overflow-hidden xl:w-[200px] w-auto",
+          "relative flex items-center bg-[#028EFC] text-white rounded-md p-2 shadow-md transition-all duration-300 ease-in hover:bg-[#5FA3B6] overflow-hidden xl:w-full ",
           className
         )}
         onMouseEnter={calSpanPosition}
@@ -44,7 +43,7 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         <span className="flex-1 text-center pr-6">{buttonText}</span>
 
         {/* Properly positioned arrow icon */}
-        <span className="absolute right-1 flex items-center justify-center w-7 h-7  rounded-full ">
+        <span className="absolute right-1 flex items-center justify-center w-6 h-6  rounded-full ">
           <GoArrowUpRight size={14} className="text-white" />
         </span>
       </Button>

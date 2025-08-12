@@ -4,7 +4,6 @@ import { FiEdit } from "react-icons/fi";
 import { FiTrash2 } from "react-icons/fi";
 import { ColumnDef } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 // Define Product type
@@ -15,6 +14,49 @@ type Product = {
   stock: string;
   price: string;
   publish: string;
+};
+
+// Action Buttons Component
+const ActionButtons = ({ productId }: { productId: string }) => {
+  const router = useRouter();
+
+  const handleViewClick = () => {
+    router.push(`/admin/Product/All-product/view-product/${productId}`);
+  };
+
+  const handleEditClick = () => {
+    router.push(`/admin/Product/All-product/edit-product/${productId}`);
+  };
+
+  const handleDeleteClick = () => {
+    console.log("Delete product:", productId);
+  };
+
+  return (
+    <div className="ml-[-25px] flex space-x-0">
+      <Button
+        onClick={handleViewClick}
+        className="rounded p-2 bg-transparent hover:bg-transparent focus:bg-transparent"
+        aria-label="View product details"
+      >
+        <RiEyeLine size={20} className="text-white" />
+      </Button>
+      <Button
+        onClick={handleEditClick}
+        className="rounded p-2 bg-transparent hover:bg-transparent focus:bg-transparent"
+        aria-label="Edit product details"
+      >
+        <FiEdit size={20} className="text-white" />
+      </Button>
+      <Button
+        onClick={handleDeleteClick}
+        className="rounded p-2 bg-transparent hover:bg-transparent focus:bg-transparent"
+        aria-label="Delete product"
+      >
+        <FiTrash2 size={20} className="text-white" />
+      </Button>
+    </div>
+  );
 };
 
 export const columns: ColumnDef<Product>[] = [
@@ -68,51 +110,7 @@ export const columns: ColumnDef<Product>[] = [
     id: "actions",
     header: "Action",
     cell: ({ row }) => {
-      const router = useRouter();
-
-      const handleViewClick = () => {
-        // Navigate to view product page
-        router.push(`/admin/Product/All-product/view-product/${row.original.id}`);
-      };
-
-      const handleEditClick = () => {
-        // Navigate to edit product page
-        router.push(`/admin/Product/All-product/edit-product/${row.original.id}`);
-      };
-
-      const handleDeleteClick = () => {
-        // Delete action - can be implemented later
-        console.log("Delete product:", row.original);
-      };
-
-      return (
-        <div className="ml-[-25px] flex space-x-0">
-          <Button
-           
-            onClick={handleViewClick}
-            className="rounded p-2 bg-transparent hover:bg-transparent focus:bg-transparent"
-            aria-label="View student details"
-          >
-            <RiEyeLine size={20} className="text-white" />
-          </Button>
-          <Button
-           
-            onClick={handleEditClick}
-            className="rounded p-2 bg-transparent hover:bg-transparent focus:bg-transparent"
-            aria-label="Edit student details"
-          >
-            <FiEdit size={20} className="text-white" />
-          </Button>
-          <Button
-           
-            onClick={handleDeleteClick}
-            className="rounded p-2 bg-transparent hover:bg-transparent focus:bg-transparent"
-            aria-label="Delete student"
-          >
-            <FiTrash2 size={20} className="text-white" />
-          </Button>
-        </div>
-      );
+      return <ActionButtons productId={row.original.id} />;
     },
   },
 ];
