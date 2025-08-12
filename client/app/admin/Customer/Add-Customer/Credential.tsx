@@ -41,8 +41,8 @@ const Credential = () => {
           <label className="block text-[#FFFFFF] text-[17px] mb-2">Phone number</label>
           <input
             type="tel"
-            className="w-full px-4xl:py-1 py-2 border border-[#172D6D] rounded-md text-white focus:border-[#028EFC] focus:outline-none"
-      
+            className="w-full px-4 xl:py-1 py-2 border border-[#172D6D] rounded-md text-white focus:border-[#028EFC] focus:outline-none"
+       
           />
         </div>
         <div>
