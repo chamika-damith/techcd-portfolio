@@ -10,7 +10,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   buttonText: string;
 }
 
-const PrimaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const SaveButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ identifier, buttonText, className, ...props }, ref) => {
     const spanRef = useRef<HTMLSpanElement | null>(null);
 
@@ -31,10 +31,9 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Button
         ref={ref}
-       
         className={cn(
           identifier,
-          "relative flex items-center bg-[#028EFC] text-white rounded-md p-2 shadow-md transition-all duration-300 ease-in hover:bg-[#5FA3B6] overflow-hidden xl:w-1/4 ",
+          "relative flex items-center bg-[#028EFC] text-white rounded-md p-2 shadow-md transition-all duration-300 ease-in hover:bg-[#5FA3B6] overflow-hidden xl:w-1/4",
           className
         )}
         onMouseEnter={calSpanPosition}
@@ -43,7 +42,7 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         <span className="flex-1 text-center pr-6">{buttonText}</span>
 
         {/* Properly positioned arrow icon */}
-        <span className="absolute right-1 mt-0.5 flex items-center justify-center w-6 h-6  rounded-full ">
+        <span className="absolute right-1 mt-0.5 flex items-center justify-center w-6 h-6 rounded-full">
           <GoArrowUpRight size={14} className="text-white" />
         </span>
       </Button>
@@ -51,6 +50,6 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 
-PrimaryButton.displayName = "PrimaryButton";
+SaveButton.displayName = "SaveButton";
 
-export default PrimaryButton;
+export default SaveButton;
