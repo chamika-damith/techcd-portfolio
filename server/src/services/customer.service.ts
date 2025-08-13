@@ -27,13 +27,27 @@ const prisma = new PrismaClient();
 // Create new customer
 export const createCustomer = async (customerData: Customer) => {
   try {
+    console.log('=== SERVICE: CREATE CUSTOMER START ===');
+    console.log('Service: Customer data received:', customerData);
+    
+    console.log('Service: Attempting to create customer in database...');
     const customer = await prisma.customer.create({
       data: customerData
     });
+    console.log('Service: Customer created successfully in database:', customer);
 
     const { password, ...customerWithoutPassword } = customer as any;
+    console.log('Service: Returning customer without password:', customerWithoutPassword);
+    console.log('=== SERVICE: CREATE CUSTOMER SUCCESS ===');
+    
     return customerWithoutPassword;
   } catch (error) {
+    console.error('=== SERVICE: CREATE CUSTOMER ERROR ===');
+    console.error('Service: Full error object:', error);
+    console.error('Service: Error name:', error instanceof Error ? error.name : 'Unknown');
+    console.error('Service: Error message:', error instanceof Error ? error.message : 'Unknown error');
+    console.error('Service: Error stack:', error instanceof Error ? error.stack : 'No stack trace');
+    
     throw new Error(`Failed to create customer: ${error instanceof Error ? error.message : 'Unknown error'}`);
   }
 };
