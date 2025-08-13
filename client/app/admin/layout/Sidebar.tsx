@@ -207,10 +207,10 @@ const Sidebar: React.FC = () => {
                       <Link href="/admin/User/All-user" className="text-[16px] text-[#E5E5E5] font-semibold">All Users</Link>
                     </li>
                     <li
-                      className={`flex items-center space-x-3 ml-[-30px] pl-[50px] pr-8 py-2 rounded-md ${isActive("/admin/gallery/gallery-category") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""}`}
+                      className={`flex items-center space-x-3 ml-[-30px] pl-[50px] pr-8 py-2 rounded-md ${isActive("/admin/User/Add-user") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""}`}
                     >
                       <FaUserPlus className="h-[20px] w-[20px]" />
-                      <Link href="/admin/gallery/gallery-category" className="text-[16px] text-[#E5E5E5] font-semibold"> Add Users</Link>
+                      <Link href="/admin/User/Add-user" className="text-[16px] text-[#E5E5E5] font-semibold"> Add Users</Link>
                     </li>
                     <li
                       className={`flex items-center space-x-3 ml-[-30px] pl-[50px] pr-8 py-2   rounded-md ${isActive("/admin/gallery/gallery-category") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""}`}
