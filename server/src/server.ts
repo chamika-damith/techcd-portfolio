@@ -3,19 +3,23 @@ import cors from 'cors';
 import { PrismaClient } from '@prisma/client';
 import dotenv from "dotenv";
 import customerRoutes from "./routes/customer.routes.ts";
+import userRoutes from "./routes/user.routes.ts";
 
 const app = express();
 const prisma = new PrismaClient();
 dotenv.config();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: '*', // Allow all origins for development
+}));
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/api/customers', customerRoutes);
+app.use('/api/users', userRoutes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
