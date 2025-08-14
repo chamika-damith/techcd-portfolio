@@ -1,5 +1,4 @@
 import React from 'react'
-import AddButton from './AddButton'
 
 const PublishingMetadata = () => {
   return (
@@ -9,13 +8,12 @@ const PublishingMetadata = () => {
         <h3 className=" font-medium text-[#FFFFFF] text-[17px] mb-4">Publish</h3>
         <div className="space-y-4">
           <div>
-            <select className="w-full px-3 py-3 rounded-lg border border-[#172D6D]  focus:outline-none  focus:ring-blue-500 focus:border-[#172D6D] text-white placeholder:text-sm text-sm  bg-black/30 backdrop-blur-[500px]">
+            <select className="w-full px-3 py-3 rounded-lg border border-[#172D6D]  focus:outline-none  focus:ring-blue-500 focus:border-[#172D6D] text-white placeholder:text-sm text-sm  bg-black/30 backdrop-blur-[500px]" disabled>
               <option>Private</option>
               <option>Public</option>
               <option>Draft</option>
             </select>
           </div>
-          <AddButton identifier="add-product-btn" buttonText="Add Product" />
         </div>
       </div>
 
@@ -27,6 +25,7 @@ const PublishingMetadata = () => {
             type="text"
             placeholder="Enter Category...."
             className="w-full px-3 text-sm py-3   border border-[#172D6D] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 placeholder:text-sm"
+            readOnly
           />
           <div>
             <h4 className="text-lg font-medium text-white mb-3">All categories</h4>
@@ -39,6 +38,7 @@ const PublishingMetadata = () => {
                         type="checkbox"
                         id={`category-${i}`}
                         className="w-4 h-4 text-white bg-transparent border border-white rounded focus:ring-white focus:ring-1 appearance-none checked:bg-white checked:after:content-['✓'] checked:after:text-black checked:after:absolute checked:after:text-xs checked:after:font-bold checked:after:leading-none checked:after:top-0.5 checked:after:left-0.5 relative"
+                        disabled
                       />
                       <label htmlFor={`category-${i}`} className="ml-2 text-sm text-white">
                         Hip hop
@@ -58,8 +58,8 @@ const PublishingMetadata = () => {
         <div className="space-y-3">
           <input
             type="text"
-            placeholder="Enter Tag..."
             className="w-full px-3 py-3 text-sm  border border-[#172D6D] rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 placeholder:text-sm"
+            readOnly
           />
           <div>
             <h4 className="text-lg font-medium text-white mb-3">All tags</h4>
@@ -72,6 +72,7 @@ const PublishingMetadata = () => {
                         type="checkbox"
                         id={`tag-${i}`}
                         className="w-4 h-4 text-white bg-transparent border border-white rounded focus:ring-white focus:ring-1 appearance-none checked:bg-white checked:after:content-['✓'] checked:after:text-black checked:after:absolute checked:after:text-xs checked:after:font-bold checked:after:leading-none checked:after:top-0.5 checked:after:left-0.5 relative"
+                        disabled
                       />
                       <label htmlFor={`tag-${i}`} className="ml-2 text-sm text-white">
                         Hip hop
@@ -96,7 +97,8 @@ const PublishingMetadata = () => {
             <input
               type="text"
               className="w-full px-3  py-3 text-sm  border border-[#172D6D]  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 placeholder:text-sm"
-              placeholder="Enter SEO title"
+             
+              readOnly
             />
           </div>
           <div>
@@ -106,7 +108,8 @@ const PublishingMetadata = () => {
             <input
               type="text"
               className="w-full px-3  py-3 text-sm    border border-[#172D6D]  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 placeholder:text-sm"
-              placeholder="Enter meta keywords"
+    
+              readOnly
             />
           </div>
           <div>
@@ -116,7 +119,8 @@ const PublishingMetadata = () => {
             <textarea
               rows={3}
               className="w-full px-3  py-3 text-sm   border border-[#172D6D]  rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 placeholder:text-sm resize-none"
-              placeholder="Enter meta description"
+    
+              readOnly
             />
           </div>
         </div>
