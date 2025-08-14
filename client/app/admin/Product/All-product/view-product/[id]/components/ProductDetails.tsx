@@ -13,7 +13,7 @@ const ProductDetails = () => {
         <input
           type="text"
           className="w-full px-4 py-3  rounded-lg border border-[#172D6D]  text-white text-sm"
-
+          readOnly
         />
       </div>
 
@@ -25,7 +25,7 @@ const ProductDetails = () => {
         <textarea
           rows={3}
           className="w-full px-4 py-3 b rounded-lg border border-[#172D6D] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 text-sm resize-none"
-         
+          readOnly
         />
       </div>
 
@@ -37,7 +37,7 @@ const ProductDetails = () => {
         <textarea
           rows={6}
           className="w-full px-4 py-3  rounded-lg border border-[#172D6D] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 text-sm resize-none"
-         
+          readOnly
         />
       </div>
 
@@ -53,7 +53,7 @@ const ProductDetails = () => {
           <input
 
             className="w-full px-4 py-3  rounded-lg border border-[#172D6D] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 text-sm"
-           
+            readOnly
           />
         </div>
         <div>
@@ -63,7 +63,7 @@ const ProductDetails = () => {
           <input
 
             className="w-full px-4 py-3  rounded-lg border border-[#172D6D] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 text-sm"
-           
+            readOnly
           />
         </div>
       </div>
