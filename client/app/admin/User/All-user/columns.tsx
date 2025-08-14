@@ -63,17 +63,16 @@ export const columns: ColumnDef<User>[] = [
       return (
         <div className="ml-[-25px] flex space-x-0">
           <Button
-           
-          
+            onClick={() => router.push(`/admin/User/All-user/view-user/${row.original.id}`)}
             className="rounded p-2 bg-transparent hover:bg-transparent focus:bg-transparent"
-            aria-label="View customer details"
+            aria-label="View user details"
           >
             <RiEyeLine size={20} className="text-white" />
           </Button>
           <Button
-            onClick={() => router.push(`/admin/Customer/All-Customer/edit-customer/${row.original.id}`)}
+            onClick={() => router.push(`/admin/User/All-user/edit-user/${row.original.id}`)}
             className="rounded p-2 bg-transparent hover:bg-transparent focus:bg-transparent"
-            aria-label="Edit customer details"
+            aria-label="Edit user details"
           >
             <FiEdit size={20} className="text-white" />
           </Button>

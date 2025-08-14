@@ -10,6 +10,7 @@ interface CredentialProps {
     username: string;
     phoneNumber: string;
     password: string;
+    role: string;
   };
   onInputChange: (field: string, value: string) => void;
 }
@@ -71,12 +72,26 @@ const Credential: React.FC<CredentialProps> = ({ formData, onInputChange }) => {
         <div>
           <label className="block text-[#FFFFFF] text-[17px] mb-2">Password</label>
           <input
-            type="password"
-            value={formData.password}
-            onChange={(e) => onInputChange('password', e.target.value)}
-            className="w-full px-4 xl:py-1 py-2  border border-[#172D6D] rounded-md text-white focus:border-[#028EFC] focus:outline-none"
-            required
+            type="tel"
+            value={formData.phoneNumber}
+          
+            className="w-full px-4 xl:py-1 py-2 border border-[#172D6D] rounded-md text-white focus:border-[#028EFC] focus:outline-none"
           />
+        </div>
+        <div>
+          <label className="block text-[#FFFFFF] text-[17px] mb-2">Role</label>
+          <select
+            value={formData.role}
+            onChange={(e) => onInputChange('role', e.target.value)}
+            className="w-full px-4 xl:py-1 py-2 border border-[#172D6D] rounded-md text-white focus:border-[#028EFC] focus:outline-none bg-transparent"
+            required
+          >
+            <option value="" className="bg-[#172D6D] text-white">Select Role</option>
+            <option value="admin" className="bg-[#172D6D] text-white">Admin</option>
+            <option value="user" className="bg-[#172D6D] text-white">User</option>
+            <option value="moderator" className="bg-[#172D6D] text-white">Moderator</option>
+            <option value="editor" className="bg-[#172D6D] text-white">Editor</option>
+          </select>
         </div>
       </div>
     </div>

@@ -64,8 +64,7 @@ export const columns: ColumnDef<Customer>[] = [
       return (
         <div className="ml-[-25px] flex space-x-0">
           <Button
-           
-          
+            onClick={() => router.push(`/admin/Customer/All-Customer/view-customer/${row.original.id}`)}
             className="rounded p-2 bg-transparent hover:bg-transparent focus:bg-transparent"
             aria-label="View customer details"
           >
