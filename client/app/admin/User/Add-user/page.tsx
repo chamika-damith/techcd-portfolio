@@ -13,6 +13,7 @@ function Page() {
     username: '',
     phoneNumber: '',
     password: '',
+    role: '',
     // Shipping fields
    
   });
