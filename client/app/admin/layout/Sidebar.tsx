@@ -226,7 +226,7 @@ const Sidebar: React.FC = () => {
                   }`}
               >
                 <FaShoppingCart className="h-[20px] w-[20px]" />
-                <Link href="/admin/Profile" className="text-[16px] text-[#E5E5E5] font-semibold">Orders</Link>
+                <Link href="/admin/Order" className="text-[16px] text-[#E5E5E5] font-semibold">Orders</Link>
               </li>
               <li
                 className={`flex items-center space-x-4 px-6 py-2 rounded-md ${isActive("/admin/Profile") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
