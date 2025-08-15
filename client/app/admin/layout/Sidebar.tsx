@@ -229,11 +229,11 @@ const Sidebar: React.FC = () => {
                 <Link href="/admin/Profile" className="text-[16px] text-[#E5E5E5] font-semibold">Orders</Link>
               </li>
               <li
-                className={`flex items-center space-x-4 px-6 py-2 rounded-md ${isActive("/admin/Profile") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
+                className={`flex items-center space-x-4 px-6 py-2 rounded-md ${isActive("/admin/Coupons") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
                   }`}
               >
                 <FaTicketAlt className="h-[20px] w-[20px]" />
-                <Link href="/admin/Profile" className="text-[16px] text-[#E5E5E5] font-semibold">Coupons</Link>
+                <Link href="/admin/Coupons" className="text-[16px] text-[#E5E5E5] font-semibold">Coupons</Link>
               </li>
               <li
                 className={`flex items-center space-x-4 px-6 py-2 rounded-md ${isActive("/admin/Profile") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
