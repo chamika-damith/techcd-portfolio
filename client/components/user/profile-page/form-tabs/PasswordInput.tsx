@@ -1,22 +1,27 @@
+import React, { useState } from "react";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { cn } from "@/lib/utils";
-import React from "react";
 
-interface FormInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface PasswordInputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   error?: string;
 }
 
-const FormInput: React.FC<FormInputProps> = ({
+const PasswordInput: React.FC<PasswordInputProps> = ({
   label,
   error,
   id,
   className,
   ...props
 }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
   return (
     <div className="relative mb-[2em]">
       <label htmlFor={id}>{label}</label>
       <input
+        type={isVisible ? "text" : "password"}
         id={id}
         {...props}
         className={cn(
@@ -24,6 +29,13 @@ const FormInput: React.FC<FormInputProps> = ({
           className,
         )}
       />
+      <button
+        type="button"
+        className="absolute right-[1em] bottom-0 h-[2em] opacity-80 hover:opacity-100"
+        onClick={() => setIsVisible((prev) => !prev)}
+      >
+        {isVisible ? <IoMdEyeOff /> : <IoMdEye />}
+      </button>
       {error && (
         <p className="absolute top-full left-0 mt-[0.2em] text-[0.8em] font-light text-[#FF8E72]">
           {error}
@@ -33,4 +45,4 @@ const FormInput: React.FC<FormInputProps> = ({
   );
 };
 
-export default FormInput;
+export default PasswordInput;

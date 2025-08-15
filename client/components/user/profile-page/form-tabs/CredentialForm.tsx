@@ -1,22 +1,38 @@
-import React from "react";
-import { GoArrowUpRight } from "react-icons/go";
-import FormInput from "./FormInput";
+"use client";
+
+import React, { useState } from "react";
+
+import TelSubForm from "./TelSubForm";
+import NameSubForm from "./NameSubForm";
+import EmailSubForm from "./EmailSubForm";
+import UsernameSubForm from "./UsernameSubForm";
+import PasswordSubForm from "./PasswordSubForm";
+import AuthSubForm from "./AuthSubForm";
 
 const CredentialForm = () => {
-  return (
-    <form className="text-[12px] sm:text-[13px] md:text-[15px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
-      <FormInput label="First Name" />
-      <FormInput label="Last Name" />
-      <FormInput label="Email" />
-      <FormInput label="Username" />
-      <FormInput label="Password" />
-      <FormInput label="Phone number" />
-      <FormInput label="2 Factor Authentication" />
+  const [activeSubForm, setActiveSubForm] = useState("name");
 
-      <button className="bg-primary ms-auto flex w-fit items-center gap-[0.5em] rounded-[0.5em] px-[1em] py-[0.5em]">
-        <span>Save Changes</span> <GoArrowUpRight />
-      </button>
-    </form>
+  return (
+    <>
+      {activeSubForm === "name" && (
+        <NameSubForm setActiveSubForm={setActiveSubForm} />
+      )}
+      {activeSubForm === "email" && (
+        <EmailSubForm handleClose={() => setActiveSubForm("name")} />
+      )}
+      {activeSubForm === "username" && (
+        <UsernameSubForm handleClose={() => setActiveSubForm("name")} />
+      )}
+      {activeSubForm === "password" && (
+        <PasswordSubForm handleClose={() => setActiveSubForm("name")} />
+      )}
+      {activeSubForm === "phone" && (
+        <TelSubForm handleClose={() => setActiveSubForm("name")} />
+      )}
+      {activeSubForm === "auth" && (
+        <AuthSubForm handleClose={() => setActiveSubForm("name")} />
+      )}
+    </>
   );
 };
 
