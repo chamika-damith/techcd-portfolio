@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import { DataTable } from "./All-Orders/data-table"
+import { DataTable } from "./All-Orders/DataTable"
 import { Order, columns } from "./All-Orders/columns"
 import { FaSearch } from "react-icons/fa";
 import { RiEyeLine } from "react-icons/ri";
@@ -77,7 +77,7 @@ export default function OrdersPage() {
       return {
         ...col,
         cell: ({ row }: any) => (
-          <div className="ml-[-25px] flex space-x-0">
+          <div className="ml-[-5px] flex space-x-0">
             <button
               onClick={() => handleViewOrder(row.original)}
               className="rounded p-2 bg-transparent hover:bg-transparent focus:bg-transparent"
@@ -100,29 +100,30 @@ export default function OrdersPage() {
   });
 
   return (
-    <div>
+    <div className="px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto">
         {/* Orders Table with Sorting & Search */}
         <div className="mt-6 rounded-2xl sm:gap-0">
-          <div className="grid flex-wrap gap-4 sm:mb-6 sm:items-center sm:justify-between sm:gap-2 md:flex">
+          <div className="flex flex-col gap-4 sm:mb-6 sm:items-center sm:justify-between md:flex-row">
             <div>
               <div className="flex items-center gap-4">
-                <h1 className="text-[28px] font-bold sm:text-[24px] md:text-[26px] lg:text-[28px] xl:text-[30px] text-[#E5E5E5]">
+                <h1 className="text-[20px] font-bold sm:text-[24px] md:text-[26px] lg:text-[28px] xl:text-[30px] text-[#E5E5E5]">
                   Orders
                 </h1>
-                <span className="text-[17px] text-[#E5E5E5] font-semibold sm:text-[18px] md:text-[19px] lg:text-[20px] xl:text-[20px] mt-2">
+                <span className="text-[14px] text-[#E5E5E5] font-semibold sm:text-[16px] md:text-[18px] lg:text-[19px] xl:text-[20px] mt-1 sm:mt-2">
                   All orders
                 </span>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 sm:flex sm:gap-4 sm:flex-row">
+            {/* Responsive Filters and Search Container */}
+            <div className="flex flex-col gap-3 w-full md:w-auto md:flex-row md:gap-3 lg:gap-4">
               {/* Status Filter */}
-              <div className="relative">
+              <div className="relative w-full md:w-32 lg:w-36 xl:w-40">
                 <select
                   value={statusFilter}
                   onChange={(e) => setStatusFilter(e.target.value)}
-                  className="w-[150px] rounded-3xl bg-[#0B1739] px-4 py-3 border border-[#FFFFFF33]/20 text-[14px] text-white appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#AEB9E1]/50 focus:border-[#AEB9E1]/50 transition-all duration-200 hover:border-[#AEB9E1]/30"
+                  className="w-full rounded-3xl bg-[#0B1739] px-3 py-3 text-sm border border-[#FFFFFF33]/20 text-white appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#AEB9E1]/50 focus:border-[#AEB9E1]/50 transition-all duration-200 hover:border-[#AEB9E1]/30"
                 >
                   <option value="" className="bg-[#0B1739] text-white py-2">All Status</option>
                   <option value="Delivered" className="bg-[#0B1739] text-white py-2">Delivered</option>
@@ -142,11 +143,11 @@ export default function OrdersPage() {
               </div>
 
               {/* Payment Filter */}
-              <div className="relative">
+              <div className="relative w-full md:w-40 lg:w-44 xl:w-48">
                 <select
                   value={paymentFilter}
                   onChange={(e) => setPaymentFilter(e.target.value)}
-                  className="w-[180px] rounded-3xl bg-[#0B1739] px-4 py-3 border border-[#FFFFFF33]/20 text-[14px] text-white appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#AEB9E1]/50 focus:border-[#AEB9E1]/50 transition-all duration-200 hover:border-[#AEB9E1]/30"
+                  className="w-full rounded-3xl bg-[#0B1739] px-3 py-3 text-sm border border-[#FFFFFF33]/20 text-white appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#AEB9E1]/50 focus:border-[#AEB9E1]/50 transition-all duration-200 hover:border-[#AEB9E1]/30"
                 >
                   <option value="" className="bg-[#0B1739] text-white py-2">All Payments</option>
                   <option value="card" className="bg-[#0B1739] text-white py-2">Card</option>
@@ -164,19 +165,18 @@ export default function OrdersPage() {
                   </svg>
                 </div>
               </div>
+
               {/* Search Bar */}
-              <div className="relative">
+              <div className="relative w-full md:w-48 lg:w-56 xl:w-64 2xl:w-72">
                 <input
                   type="text"
                   placeholder="Search For..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-[220px] rounded-3xl bg-[#0B1739] px-3 pl-10 py-3 md:w-[250px] lg:w-[280px] xl:w-[285px] 2xl:w-[285px] border-[#FFFFFF33]/20 text-[14px] text-white"
+                  className="w-full rounded-3xl bg-[#0B1739] px-3 pl-10 py-3 text-sm border border-[#FFFFFF33]/20 text-white focus:outline-none focus:ring-2 focus:ring-[#AEB9E1]/50 focus:border-[#AEB9E1]/50 transition-all duration-200"
                 />
-                <FaSearch className="absolute top-1/2 left-3 xl:-translate-y-1 -translate-y-1/2 transform text-[#AEB9E1] text-[14px]" />
+                <FaSearch className="absolute top-1/2 left-3 -translate-y-1/2 transform text-[#AEB9E1] text-sm" />
               </div>
-
-
             </div>
           </div>
 
