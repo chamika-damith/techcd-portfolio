@@ -222,7 +222,7 @@ const Sidebar: React.FC = () => {
                 )}
               </li>
               <li
-                className={`flex items-center space-x-4 px-6 py-2 rounded-md ${isActive("/admin/Profile") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
+                className={`flex items-center space-x-4 px-6 py-2 rounded-md ${isActive("/admin/Order") ? "bg-gradient-to-r from-[#43A8F7] to-[#028EFC] text-white" : ""
                   }`}
               >
                 <FaShoppingCart className="h-[20px] w-[20px]" />

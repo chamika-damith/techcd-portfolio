@@ -5,6 +5,9 @@ import { FiTrash2 } from "react-icons/fi";
 import { ColumnDef } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import EditCouponModal from "./EditCouponModal";
+import VeiwCouponModal from "./VeiwCouponModal";
 
 // Define Product type
 type Product = {
@@ -20,43 +23,62 @@ type Product = {
 // Action Buttons Component
 const ActionButtons = ({ productId }: { productId: string }) => {
   const router = useRouter();
-
-  const handleViewClick = () => {
-    router.push(`/admin/Product/All-product/view-product/${productId}`);
-  };
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isViewModalOpen, setIsViewModalOpen] = useState(false);
 
   const handleEditClick = () => {
-    router.push(`/admin/Product/All-product/edit-product/${productId}`);
+    setIsEditModalOpen(true);
   };
 
-  const handleDeleteClick = () => {
-    console.log("Delete product:", productId);
+  const handleCloseEditModal = () => {
+    setIsEditModalOpen(false);
+  };
+
+  const handleViewClick = () => {
+    setIsViewModalOpen(true);
+  };
+
+  const handleCloseViewModal = () => {
+    setIsViewModalOpen(false);
   };
 
   return (
-    <div className="ml-[-25px] flex space-x-0">
-      <Button
-        onClick={handleViewClick}
-        className="rounded p-2 bg-transparent hover:bg-transparent focus:bg-transparent"
-        aria-label="View product details"
-      >
-        <RiEyeLine size={20} className="text-white" />
-      </Button>
-      <Button
-        onClick={handleEditClick}
-        className="rounded p-2 bg-transparent hover:bg-transparent focus:bg-transparent"
-        aria-label="Edit product details"
-      >
-        <FiEdit size={20} className="text-white" />
-      </Button>
-      <Button
-        onClick={handleDeleteClick}
-        className="rounded p-2 bg-transparent hover:bg-transparent focus:bg-transparent"
-        aria-label="Delete product"
-      >
-        <FiTrash2 size={20} className="text-white" />
-      </Button>
-    </div>
+    <>
+      <div className="ml-[-25px] flex space-x-0">
+        <Button
+          onClick={handleViewClick}
+          className="rounded p-2 bg-transparent hover:bg-transparent focus:bg-transparent"
+          aria-label="View product details"
+        >
+          <RiEyeLine size={20} className="text-white" />
+        </Button>
+        <Button
+          onClick={handleEditClick}
+          className="rounded p-2 bg-transparent hover:bg-transparent focus:bg-transparent"
+          aria-label="Edit product details"
+        >
+          <FiEdit size={20} className="text-white" />
+        </Button>
+        <Button
+          className="rounded p-2 bg-transparent hover:bg-transparent focus:bg-transparent"
+          aria-label="Delete product"
+        >
+          <FiTrash2 size={20} className="text-white" />
+        </Button>
+      </div>
+      
+      {/* Edit Coupon Modal */}
+      <EditCouponModal 
+        isOpen={isEditModalOpen} 
+        onClose={handleCloseEditModal} 
+      />
+
+      {/* View Coupon Modal */}
+      <VeiwCouponModal 
+        isOpen={isViewModalOpen} 
+        onClose={handleCloseViewModal} 
+      />
+    </>
   );
 };
 
