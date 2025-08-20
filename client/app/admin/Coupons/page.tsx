@@ -10,6 +10,7 @@ import AddCouponModal from './AddCouponModal'
 const AllProductsTable = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [statusFilter, setStatusFilter] = useState("");
 
     // Mock coupon data
     const products = [
@@ -108,10 +109,10 @@ const AllProductsTable = () => {
                         <div>
                             <div className="flex items-center gap-4">
                                 <h1 className="text-[28px] font-bold sm:text-[24px] md:text-[26px] lg:text-[28px] xl:text-[30px] text-[#E5E5E5]">
-                                    Products
+                                    Coupons
                                 </h1>
                                 <span className="text-[17px] text-[#E5E5E5] font-semibold sm:text-[18px] md:text-[19px] lg:text-[20px] xl:text-[20px] mt-2">
-                                    All products
+                                    All Coupons
                                 </span>
                             </div>
                         </div>
@@ -119,45 +120,45 @@ const AllProductsTable = () => {
                         <div className=" grid flex-wrap gap-4 sm:flex sm:gap-4">
                             {/* Search Bar */}
                             <div className="relative">
-                                                                 <input
-                                     type="text"
-                                     placeholder="Search For..."
-                                     value={searchTerm}
-                                     onChange={(e) => setSearchTerm(e.target.value)}
-                                     className="w-[180px] rounded-3xl bg-[#0B1739] px-3 pl-10 py-3 md:w-[250px] lg:w-[280px] xl:w-[285px] 2xl:w-[285px] border-[#FFFFFF33]/20 text-[14px]"
-                                 />
+                                <input
+                                    type="text"
+                                    placeholder="Search For..."
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                    className="w-[180px] rounded-3xl bg-[#0B1739] px-3 pl-10 py-3 md:w-[250px] lg:w-[280px] xl:w-[285px] 2xl:w-[285px] border-[#FFFFFF33]/20 text-[14px]"
+                                />
                                 <FaSearch className="absolute top-1/2 left-3 xl:-translate-y-1 -translate-y-1/2 transform text-[#AEB9E1] text-[14px]" />
                             </div>
 
                             {/* Status Filter */}
-                            <div className="relative mt-[7px] md:w-[170px] w-[150px]  md:py-0 py-2  px-3 rounded-3xl bg-[#0B1739]">
-                                <label className="text-[12px]">Status:</label>
+                            <div className="relative md:mr-0 ml-[-10px]  md:w-[170px] w-[150px]  md:py-0 py-2  px-3 rounded-3xl">
                                 <select
-
-                                    className="items-center  px-3 py-1 text-[12px]"
+                                    value={statusFilter}
+                                    onChange={(e) => setStatusFilter(e.target.value)}
+                                    className="w-[150px] rounded-3xl bg-[#0B1739] px-4 py-3 border border-[#FFFFFF33]/20 text-[14px] text-white appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#AEB9E1]/50 focus:border-[#AEB9E1]/50 transition-all duration-200 hover:border-[#AEB9E1]/30"
                                 >
-                                    <option value="all">All</option>
-                                    <option
-                                        value="Pending"
-                                        className="font-poppins text-[#0F5FC2]"
-                                    >
-                                        Active
-                                    </option>
-                                    <option
-                                        value="Accepted"
-                                        className="font-poppins text-[#00AC4F]"
-                                    >
-                                        Expired
-                                    </option>
-
+                                    <option value="" className="bg-[#0B1739] text-white py-2">All Status</option>
+                                    <option value="Delivered" className="bg-[#0B1739] text-white py-2">Delivered</option>
+                                    <option value="Pending" className="bg-[#0B1739] text-white py-2">Pending</option>
+                                    <option value="Cancelled" className="bg-[#0B1739] text-white py-2">Cancelled</option>
                                 </select>
+                                <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                                    <svg
+                                        className="w-4 h-4 text-[#AEB9E1] transition-transform duration-200"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
                             </div>
 
                             {/* Add button */}
                             <div className="relative mt-[7px]  ">
-                                <AddButton 
-                                    identifier="add-product" 
-                                    buttonText="Add Coupon" 
+                                <AddButton
+                                    identifier="add-product"
+                                    buttonText="Add Coupon"
                                     onClick={() => setIsModalOpen(true)}
                                 />
                             </div>
@@ -171,9 +172,9 @@ const AllProductsTable = () => {
             </div>
 
             {/* Add Coupon Modal */}
-            <AddCouponModal 
-                isOpen={isModalOpen} 
-                onClose={() => setIsModalOpen(false)} 
+            <AddCouponModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
             />
         </div>
     );
